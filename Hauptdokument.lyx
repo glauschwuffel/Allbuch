@@ -8,9 +8,11 @@
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage[natbib=true,backend=biber]{biblatex}
-\bibliography{/Users/gregor/Documents/Texte/Allbuch/Referenzen}
+\bibliography{./Referenzen}
 
-% Einstellungen, um überfüllte HKästen ze vermeiden. So l2tabu entnommen.
+\renewcommand{\sfdefault}{\rmdefault}
+
+% Einstellungen, um überfüllte HKästen zu vermeiden. So l2tabu entnommen.
 \tolerance 1414
 \hbadness 1414
 \emergencystretch 1.5em
@@ -19,33 +21,54 @@
 \vfuzz \hfuzz
 \raggedbottom
 
-  \usepackage[scaled=1.6]{dictsym}
-  \usepackage[svgnames]{xcolor}
+% Randnotizen formatieren
+\usepackage{marginnote}
+\let\OldMarginpar\marginpar 
+\renewcommand{\marginpar}[1]{\OldMarginpar{\small\emph{#1}}}
 
-  \definecolor{Darkblue}{rgb}{0,0,0.6}
+% Damit im PDF auch nach Zeichenfolgen gesucht werden kann, die zu einer
+% Ligatur führen. Neuerdings gibt es eine Warnung wenn vorher schon
+% fontenc geladen wird, deswegen laden wir es erst nach cmap.
+\usepackage{cmap}
+\input{glyphtounicode}
+\pdfgentounicode=1
 
-  % Kapitelnummern bitte in Euler setzen
-  \newfont{\chapterNumber}{eurb10 scaled 7000}
+% Farben definieren: Hellblau.
+% Das kann jeder gut lesen und es stört nicht.
+% Dunkelblau sind die Ränder.
+\usepackage{color}
+\definecolor{lightblue}{rgb}{0.95,0.95,1.0}
+\definecolor{darkblue}{rgb}{0.3,0.3,0.8}
 
-  \newcommand{\liesnach}[1]{\marginline{
-  \scriptsize\raisebox{-.35em}{\dsliterary{}}
-  \textsf{#1}}}
+% URLs und Pfade bitte nicht in Schreibmaschinenschrift malen, sondern kursiv.
+\renewcommand{\UrlFont}{\it}
+\renewcommand{\path}{\url}
 
-  \newcommand{\inkapitel}[1]{\\\quad\,Kap.\,#1}
-  \renewcommand{\sfdefault}{\rmdefault}
-  
-  \RequirePackage{textcase} % for \MakeTextUppercase
-  \RequirePackage{ifthen}
+% Definition eigener Kopf- und Fusszeilen:
+\usepackage{scrpage2}
+
+\pagestyle{scrheadings}
+\ihead{Stand: \today}
+\setheadsepline{1pt}
+
+% Dinge im Seitenkopf setzen wir in kleinerem Schriftgrad bei normaler Schrift,
+% serifenlos und fett.
+\setkomafont{pageheadfoot}{\small\normalfont\sffamily\bfseries}
+
+
+% Kapitelnummern bitte in Euler setzen
+\newfont{\chapterNumber}{eurb10 scaled 7000}
+
+
+\RequirePackage{textcase} % for \MakeTextUppercase
+\RequirePackage{ifthen}
 
   % Überschriften in Großbuchstaben und leicht gesperrt setzen.
   % textls bringt das Paket microtype mit  
-  \DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{#1}}%
-  \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\scshape\MakeTextLowercase{#1}}%
 
 % Überschriften bitte in Kapitälchen setzen
-% Das sieht aber nicht ganz so lecker aus...
-%  \DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\textsc{#1}}}%
-%  \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\textsc{#1}}}%
+\DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\textsc{#1}}}%
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\textsc{#1}}}%
 
 % ********************************************************************
 % layout of the chapter-, section-, subsection-, subsubsection-,
@@ -57,11 +80,11 @@
     \titleformat{\part}[display]
         {\normalfont\centering\large}%
         {\thispagestyle{empty}\partname~\MakeTextUppercase{\thepart}}{1em}%
-        {\color{Darkblue}\spacedallcaps}
+        {\color{darkblue}\spacedallcaps}
     % chapters
 
     \titleformat{\chapter}[display]%             
-        {\relax}{\raggedleft{\color{Darkblue}\chapterNumber\thechapter} \\ }{0pt}%
+        {\relax}{\raggedleft{\color{darkblue}\chapterNumber\thechapter} \\ }{0pt}%
         {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
 
     % sections \FloatBarrier
@@ -83,6 +106,10 @@
     \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
     \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
     \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
+
+
+% noch prüfen, ob das unbedingt sein muss
+\recalctypearea
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -122,6 +149,7 @@ biblatex
 \pdf_colorlinks true
 \pdf_backref false
 \pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=darkblue,citecolor=darkblue,urlcolor=darkblue"
 \papersize a4paper
 \use_geometry true
 \use_amsmath 1
@@ -132,7 +160,7 @@ biblatex
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \use_refstyle 0
 \index Stichwortverzeichnis
 \shortcut idx
@@ -157,20 +185,277 @@ biblatex
 
 \begin_body
 
-\begin_layout Title
-Das Allbuch
-\begin_inset Newline newline
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{titlepage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[1]{Titel}{titel}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+large
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill % das hfill ist wichtig, da sonst nicht vertikal zentriert wird
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfil
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+begingroup
+\end_layout
+
+\begin_layout Plain Layout
+
+    %
+\backslash
+color{darkblue}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+spacedallcaps{Das Allbuch}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+spacedallcaps{der drei Fragezeichen}
+\backslash
+
+\backslash
+ 
+\backslash
+medskip
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+emph{Gregor Goldbach}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+endgroup
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Large
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill % das hfill ist wichtig, da sonst nicht vertikal zentriert wird
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfil
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+spacedlowsmallcaps{Gregor Goldbach}
+\backslash
+
+\backslash
+ 
+\backslash
+medskip
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+begingroup
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+color{darkblue}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+spacedallcaps{Das Allbuch}
+\backslash
+
+\backslash
+ 
+\backslash
+medskip
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+spacedallcaps{der drei Fragezeichen}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+endgroup
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{flushright}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+emph{Lesebuch und Nachschlagewerk über
+\backslash
+
+\backslash
+die drei Detektive aus Rocky Beach}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{flushright}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{titlepage}
+\end_layout
+
 \end_inset
 
-der drei Fragezeichen
-\end_layout
 
-\begin_layout Title
-Achtun! Nicht mehr ändern!
-\end_layout
-
-\begin_layout Author
-Gregor Goldbach
 \end_layout
 
 \begin_layout Standard
@@ -264,6 +549,17 @@ http://creativecommons.org/licenses/by-nc-nd/3.0/de/
 \end_layout
 
 \begin_layout Standard
+\noindent
+Ich habe diese Lizenz aus folgendem Grunde gewählt: Dieses Buch soll jeder
+ lesen können, der es möchte, und seine elektronische Variante soll ungehindert
+ weitergegeben werden können.
+ Es soll aber niemand damit Geld verdienen dürfen, wenn er oder sie mich
+ nicht vorher gefragt hat.
+ Ich bin kein Anwalt -- die Lizenz ist in diesem Geiste anzuwenden.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -274,24 +570,6 @@ status open
 vfill
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-Ich habe diese Lizenz aus folgendem Grunde gewählt: Dieses Buch soll jeder
- lesen können, der es möchte, und seine elektronische Variante soll ungehindert
- weitergegeben werden können.
- Es soll aber niemand damit Geld verdienen dürfen, wenn er oder sie mich
- nicht vorher gefragt hat.
- Ich bin kein Anwalt — die Lizenz ist in diesem Geiste anzuwenden.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
 \end_inset
 
 
@@ -334,16 +612,8 @@ glauschwuffel (at) nomaden (punkt) org
 \noindent
 Falls Du mit anderen Lesern über dieses Buch im großen, weiten Netz diskutieren
  möchtest, kannst Du das hier tun:
-\end_layout
-
-\begin_layout Standard
-\noindent
-\begin_inset VSpace smallskip
-\end_inset
-
-
 \size small
-
+ 
 \begin_inset Flex URL
 status collapsed
 
@@ -359,24 +629,9 @@ http://groups.google.de/group/das-allbuch-der-drei-fragezeichen
 
 \begin_layout Standard
 \noindent
-\begin_inset VSpace smallskip
-\end_inset
-
 Neuigkeiten zu diesem Buch erfährst Du auch über das Netz:
-\end_layout
-
-\begin_layout Standard
-\noindent
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-
 \size small
+ 
 \begin_inset Flex URL
 status collapsed
 
@@ -391,20 +646,8 @@ http://sites.google.com/site/dasallbuchderdreifragezeichen/
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace smallskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \noindent
 Und nun wünsche ich Dir viel Spaß beim Lesen!
-\end_layout
-
-\begin_layout Standard
-\align right
-Gregor Goldbach
 \end_layout
 
 \begin_layout Standard
@@ -416,13 +659,15 @@ Gregor Goldbach
 
 \begin_layout Standard
 
+\shape italic
+Allen Kassettenkindern und Leseratten, die der Welt besten Nachwuchsdetektiven
+ nacheifern.
 \end_layout
 
 \begin_layout Standard
 
-\shape italic
-Allen Kassettenkindern und Leseratten, die der Welt besten Nachwuchsdetektiven
- nacheifern.
+\emph on
+Und natürlich für Linus.
 \end_layout
 
 \begin_layout Standard
@@ -501,6 +746,7 @@ die drei ???
 
 .
  Jahrelange nicht enden wollende Recherche.
+ Ein Traum.
 \end_layout
 
 \begin_layout Standard
@@ -508,7 +754,8 @@ Die drei Detektive waren neben den fünf Freunden die Helden meiner Kindheit.
  Ich hatte nicht viele Kassetten (vielleicht vierzig) und irgendwann ungefähr
  ebenso viele Bücher, die mir meine Eltern von einem Flohmarkt mitgebracht
  hatten.
- Die Hörspielfolge 29 ist mir davon in schmerzlicher Erinnerung geblieben
+ Bedauerlicherweise ohne Schutzumschlag.
+ Von den Kassetten ist mir Folge 29 in schmerzlicher Erinnerung geblieben
  -- auf ihr war die 
 \begin_inset Quotes ald
 \end_inset
@@ -528,15 +775,19 @@ Verweis
 \end_inset
 
  enthalten.
- Schmerzlich ist die Erinnerung deshalb, weil ich die Kassetten irgendwann
- verliehen und natürlich nie wiedergesehen habe.
- Vor wenigen Jahren gab ich dann gegen 1 Euro pro Stück auch noch die Bücher
+ Schmerzlich ist die Erinnerung deshalb, weil ich die Hälfte der Kassetten
+ irgendwann verliehen und natürlich nie wiedergesehen habe.
+ Preisfrage: Zu welcher Hälfte hat wohl Folge 29 gehört?
+\end_layout
+
+\begin_layout Standard
+Vor wenigen Jahren gab ich dann gegen 1 Euro pro Stück auch noch die Bücher
  aus der Hand.
  So waren Justus, Peter, Bob und ich auseinander gegangen.
 \end_layout
 
 \begin_layout Standard
-Die Jahre vergingen und plötzlich überschlugen sich die Ergeignisse: Mein
+Die Jahre vergingen und plötzlich überschlugen sich die Ereignisse: Mein
  Bekanntenkreis erweiterte sich um eine Person, die nicht nur viele Folgen
  auf CD besaß, sondern mich auch noch an diesem Genuss teilhaben ließ.
  Ein Arbeitskollege kaufte die neuen Folgen bei iTunes.
@@ -556,7 +807,7 @@ Ich würde gerne erfahren, warum ich die
 \begin_inset Quotes ald
 \end_inset
 
-alt
+alte
 \begin_inset Quotes ard
 \end_inset
 
@@ -567,16 +818,16 @@ alt
 
 \begin_layout Standard
 Leider kann ich das nirgends nachschlagen.
- 
+ Als erste Anlaufstelle gibt es 
 \emph on
-rocky-beach.com
+rocky-beach.com: 
 \emph default
- ist ein Füllhorn der Erkenntnis, aber eben doch kein Buch.
- Es gibt 
+Diese Seite ist ein Füllhorn der Erkenntnis, aber eben doch kein Buch.
+ Andere Werke und Serien sind da weiter: Es gibt 
 \emph on
 Die Enzyklopädie des Wüstenplaneten
 \emph default
-, die einem Nachschlagewerk gleich Begriffe alfabetisch aufführt.
+, die einem Nachschlagewerk gleich Begriffe alphabetisch aufführt.
  Das ist schon nicht schlecht.
  Etwas ähnliches gibt es für 
 \emph on
@@ -584,7 +835,7 @@ Star Trek: The Next Generation
 \emph default
 : Hier wird jede Fernsehfolge beschrieben.
  Ja, alle sieben Staffeln, alle 178 Folgen (oder waren es 179? Ich muss
- nochmal nachschlagen\SpecialChar \ldots{}
+ nochmal nachschlagen \SpecialChar \ldots{}
 ).
 \end_layout
 
@@ -596,30 +847,95 @@ Nur leider gibt es das eben nicht für unsere Detektive.
 \emph on
 kann
 \emph default
-.
- Es gibt immer neue Bücher und Hörspiele, weil die Reihe laufend fortgesetzt
+: Es gibt immer neue Bücher und Hörspiele, weil die Reihe laufend fortgesetzt
  wird.
- 
-\begin_inset Note Note
-status open
+\end_layout
+
+\begin_layout Standard
+Aber dass die Reihe fortgeführt wird und nicht tot ist bedeutet andererseits
+ auch, dass wir -- diejenigen, die ungefähr in meinem Alter sind und früher
+ die Kassetten gekauft haben -- weiter in Kindheitserinnerungen schwelgen
+ und mit unseren Kindern zusammen noch einmal jung sein können, und dass
+ die jungen neuen Hörer die Möglichkeit haben, unseren jetzigen Erfahrungsschatz
+ mit der Serie aufbauen zu können.
+ Hoffentlich für viele Jahre, und vielleicht kann dieses Buch ja doch geschriebe
+n werden.
+ Einen Versuch ist dieser spezial gelagerte Sonderfall
+\begin_inset Foot
+status collapsed
 
 \begin_layout Plain Layout
-Aber das heißt andererseits auch, dass wir -- diejenigen, die ungefähr in
- meinem Alter sind und früher die Kassetten gekauft haben -- weiter in Kindheits
-erinnerungen schwelgen und mit unseren Kindern zusammen noch einmal jung
- sein können, und dass die jungen neuen Hörer die Möglichkeit haben, unseren
- jetzigen Erfahrungsschatz mit der Serie aufbauen zu können.
+Man möge mir die Verwendung dieses arg strapazierten Begriffes verzeihen.
+ Die Versuchung war zu groß.
 \end_layout
 
 \end_inset
 
- Hoffentlich für viele Jahre, und vielleicht kann dieses Buch ja doch geschriebe
-n werden.
- Einen Versuch ist dieser spezial gelagerte Sonderfall allemal wert.
+ allemal wert.
 \end_layout
 
-\begin_layout Chapter*
+\begin_layout Standard
+Und so beginne ich mit einer Minimalausgabe des Buches: die Beschreibung
+ eines Falles als Buch, als Hörspiel und als Film.
+ Darüber hinaus beschreibe ich alles, was zu diesem ersten Fall noch gehört:
+ fiktive Charaktere, die im Fall handeln; echte Personen, die das Ganze
+ umgesetzt haben; wichtige Orte der Handlung; interessante Gegenstände,
+ auf die wir treffen; und vieles mehr.
+ Eben alles, was mir sinnvoll und für ein 
+\begin_inset Quotes ald
+\end_inset
+
+vollumfängliches
+\begin_inset Quotes ard
+\end_inset
+
+ Ausleuchten nötig erschien -- sonst wäre es ja auch kein Allbuch.
+\end_layout
+
+\begin_layout Section*
+Begriffe und Formulierungen
+\end_layout
+
+\begin_layout Standard
+Bei den Fällen werde ich nicht die irgendwann doch recht sperrigen vollständigen
+ Titel verwenden, sondern eine stark verkürzte Fassung nennen.
+ Beispielsweise werde ich nicht über 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei ??? und das Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+ schreiben, sondern es 
+\emph on
+Gespensterschloss 
+\emph default
+nennen.
+ Diese kurze Fassung hat auch den Vorteil, dass es sie vernünftig beugen
+ und damit Sätze formulieren kann, die sich auch (vor-)lesen lassen.
+ Ich setze hier erneut auf die Nachsicht des Lesers; er mag den vollständigen
+ Titel im Literaturverzeichnis nachschlagen, falls er ihn benötigen sollte.
+\end_layout
+
+\begin_layout Section*
 Aufbau des Buches
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aufbau nochmal überdenken.
+ Die Aufteilung in Teile ist wirklich nur dann sinnvoll, wenn es auch viel
+ Inhalt gibt.
+ Vielleicht reichen auch schlichte Kapitel als Teile.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -627,10 +943,6 @@ Dieses Buch ist in fünf Teile gegliedert.
  Teil I beschreibt das Universum, in dem sich die drei Detektive bewegen.
  Es mag ein kleines Universum sein, dessen Zentrum der fiktive Ort Rocky
  Beach ist, aber es ist eines.
- In den Geschichten tauchen viele Personen auf, von denen einige ebenfalls
- fiktiv sind -- sind dies dann fiktiv-fiktive Personen, wie zum Beispiel
- Java-Jim? Und wie nennt man die Rolle von Alfred Hitchock, der sowohl innerhalb
-, als auch außerhalb der Geschichten auftaucht?
 \end_layout
 
 \begin_layout Standard
@@ -658,11 +970,13 @@ alte
 \end_layout
 
 \begin_layout Standard
-Der vierte Teil nimmt die Filme unter die Lupe.
- Es gibt derer erst zwei, aber das wird sich bestimmt noch ändern.
+Der vierte Teil nimmt die Filme und die Fernsehserie unter die Lupe.
+ Als ich dieses Buch begann, gab es erst zwei Filme, aber es bestand Hoffnung,
+ dass sich das noch ändern würde.
+ Und die geplante Fernsehserie war immer noch genau das -- geplant.
  Welche filmischen Anpassungen wurden hier vorgenommen? Wie kam es dazu,
- dass Oliver Rohrbeck die Synchronregie geführt hat? Und wann kommt die
- Fernsehserie?
+ dass Oliver Rohrbeck die Synchronregie geführt hat? Und wann kommt denn
+ nun die Fernsehserie?
 \end_layout
 
 \begin_layout Standard
@@ -679,359 +993,10 @@ release parties
 \begin_layout Standard
 Greifen wir nun also zum Mikroskop oder zur Lupe oder doch eher zum Fernrohr,
  und untersuchen das erste Beweisstück: Das Universum.
-\end_layout
-
-\begin_layout Part
-Das Universum
+ Willkommen in Rocky Beach, dem Küstenstädchen unweit von Hollywood!
 \end_layout
 
 \begin_layout Standard
-Eine frische Brise Seeluft weht uns um die Nase.
- Wir folgen einem Fahrzeug, das einen Peilsender mit sich trägt, auf dem
- Fahrrad und strampeln uns gerade die Lungen aus dem Leib.
- Das Piepen wird schwächer.
- Der Wagen kommt wohl gut durch den Verkehr.
- 
-\end_layout
-
-\begin_layout Standard
-Die Telefonlawine hat uns auf diese Spur gebracht.
- Vorgestern abend nach dem Abendbrot haben wir sie ins Rollen gebracht.
- Der Rückruf kam von einem Jungen mit mexikanischen Akzent, der indianische
- Vorfahren hatte und dessen Onkel ein alter Zigeuner war, der in einem Zirkus\SpecialChar \ldots{}
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Charakterverzeichnis.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-In diesem Kapitel werden alle Personen aufgeführt, die in den Büchern, Hörspiele
-n und Filmen erwähnt werden.
- Soweit möglich wird versucht, folgende Fragen für jede Person zu beantworten:
-\end_layout
-
-\begin_layout Itemize
-Wie lautet ihr vollständiger Name? Gibt es Spitznamen?
-\end_layout
-
-\begin_layout Itemize
-Welche familiären Verhältnisse sind bekannt?
-\end_layout
-
-\begin_layout Itemize
-Was ist über Freunde oder Feinde bekannt?
-\end_layout
-
-\begin_layout Itemize
-Wann wird sie zuerst erwähnt?
-\end_layout
-
-\begin_layout Itemize
-Welche besonderen Ereignisse gibt es?
-\end_layout
-
-\begin_layout Section
-Justus Jonas
-\end_layout
-
-\begin_layout Description
-Name Justus Jonas, erster Detektiv der drei ???.
-\end_layout
-
-\begin_layout Description
-Spitzname häufig Just.
- Gelegentlich wird er von seinen Freunden 
-\begin_inset Quotes gld
-\end_inset
-
-Pummelchen
-\begin_inset Quotes grd
-\end_inset
-
- genannt.
- Wer ihn ärgern will, nennt ihn 
-\begin_inset Quotes gld
-\end_inset
-
-Dickerchen
-\begin_inset Quotes grd
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Description
-Eigenschaften redet geschwollen, ist leicht korpulent und deswegen nicht
- besonders sportlich.
- Intelligent und der wohlwollende Diktator der drei ???, der Ergebnisse
- gemeinsamer Abstimmungen regelmäßig übergeht.
-\end_layout
-
-\begin_layout Description
-erste
-\begin_inset space ~
-\end_inset
-
-Erwähnung Da er der erste Detektiv ist, tritt er mit Beginn der Serie auf.
-\end_layout
-
-\begin_layout Description
-familiäre
-\begin_inset space ~
-\end_inset
-
-Verhältnisse Seine Eltern sind verstorben
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Nachweis
-\end_layout
-
-\end_inset
-
-, er ist der Neffe von Titus und Mathilda Jonas, beiden denen er lebt.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Fälle.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Orte.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Gegenstände.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Tiere.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Phänomene.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Rätsel.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Technik.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 1 - Das Universum/Gruppen.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Chapter
-Themen
-\end_layout
-
-\begin_layout Standard
-Hier stehen Themen, die angesprochen werden.
- Sowas wie 
-\begin_inset Quotes gld
-\end_inset
-
-Umweltschutz
-\begin_inset Quotes grd
-\end_inset
-
- im Riff der Haie, 
-\begin_inset Quotes gld
-\end_inset
-
-Goldrausch
-\begin_inset Quotes grd
-\end_inset
-
- im Pantomsee oder ähnlich.
- Mal sehen, ob dieses Kapitel etwas taugt.
-\end_layout
-
-\begin_layout Standard
-Ganz große Themen sind natürlich 
-\begin_inset Quotes gld
-\end_inset
-
-Bankraub
-\begin_inset Quotes grd
-\end_inset
-
-, 
-\begin_inset Quotes gld
-\end_inset
-
-Fälschen
-\begin_inset Quotes grd
-\end_inset
-
-, 
-\begin_inset Quotes gld
-\end_inset
-
-Entführung
-\begin_inset Quotes grd
-\end_inset
-
-, 
-\begin_inset Quotes gld
-\end_inset
-
-Kunstraub
-\begin_inset Quotes grd
-\end_inset
-
- :-)
-\end_layout
-
-\begin_layout Part
-Die Bücher
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 2 - Die Bücher/Buchreihe.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 2 - Die Bücher/Personenverzeichnis.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 2 - Die Bücher/Verlage.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Chapter
-Die Auflagen
-\end_layout
-
-\begin_layout Itemize
-Hier gehört nicht hin, wie viele Auflagen jedes Buch hatte.
- Das steht wohl besser bei jedem Buch.
-\end_layout
-
-\begin_layout Itemize
-hier gehört hin, welche grundsätzlichen Sachen es über die Auflagen zu sagen
- gibt.
- Wenn es das gibt.
-\end_layout
-
-\begin_layout Chapter
-Die Cover
-\end_layout
-
-\begin_layout Plain Layout
-Wer malt die? Wer hatte die Idee? Gibt es Unterschiede zwischen den Auflagen?
-\end_layout
-
-\begin_layout Chapter
-Der Ursprung
-\end_layout
-
-\begin_layout Chapter
-Andere Länder
-\end_layout
-
-\begin_layout Plain Layout
-Die Buchreihe erschien in vielen Ländern.
- In Tabelle X ist der Name der Reihe in den unterschiedlichen Sprachen aufgeführ
-t.
-\begin_inset Float table
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
 \begin_inset ERT
 status open
 
@@ -1039,418 +1004,3039 @@ status open
 
 
 \backslash
-small
+mainmatter
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Das Universum
+\end_layout
+
+\begin_layout Standard
+Eine frische Brise Seeluft weht uns um die Nase und die Sonne strahlt vom
+ hellblauen Himmel.
+ Wir folgen einem Fahrzeug, das unseren Peilsender mit sich trägt, auf dem
+ Fahrrad und strampeln uns gerade die Lungen aus dem Leib.
+ Das Piepen wird schwächer.
+ Der Wagen kommt viel besser als wir durch den Verkehr und hat uns bald
+ abgehängt.
+ Hoffentlich lässt er sich bald von einer roten Ampel aufhalten.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Telefonlawine hat uns auf diese Spur gebracht.
+ Vorgestern Abend nach dem Abendbrot haben wir sie ins Rollen gebracht.
+ Der Rückruf kam von einem Jungen mit mexikanischen Akzent, der indianische
+ Vorfahren hatte und dessen Onkel ein alter Zigeuner war, der in einem Zirkus
+ \SpecialChar \ldots{}
+ 
+\end_layout
+
+\begin_layout Chapter
+Die Fälle
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel findest du die einzelnen Fälle.
+ Ich beschreibe hier die Handlung der Fälle, wie es zum Auftrag -- wenn
+ es denn einen gab -- kam, und auf welche Charaktere wir hier treffen.
+\end_layout
+
+\begin_layout Standard
+Ich werde ferner versuchen, den Fall in eine Schublade einzusortieren, die
+ das Etikett 
+\begin_inset Quotes ald
+\end_inset
+
+Kategorie
+\begin_inset Quotes ard
+\end_inset
+
+ trägt.
+ Es gibt von derer viele: Mysterium, Verbrechensaufklärung, Schatzsuche,
+ Verfolgungsjagd, Schnitzeljagd, und noch viel mehr.
+\end_layout
+
+\begin_layout Standard
+Dann suche ich noch nach der Bedeutung des Falles für die Reihe.
+ Vielleicht gibt es ja einige Perlen, die hervorblitzen?
+\end_layout
+
+\begin_layout Section
+Das Gespensterschloss
+\end_layout
+
+\begin_layout Standard
+Kategorie: Mysterium
+\end_layout
+
+\begin_layout Standard
+Zusammenfassung: Justus hat das Detektivbüro 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei Detektive
+\begin_inset Quotes ard
+\end_inset
+
+ gerade neu gegründet und nun sucht er einen möglichst spektakulären Fall,
+ um auffällige Werbung für das Unternehmen zu machen.
+ Was liegt da näher, als gleich in die Vollen zu gehen und Alfred Hitchcock
+ als Auftraggeber zu wählen, da dieser gerade ein Spukschloss sucht? Justus
+ bringt Hitchcock, der zunächst ablehnt, geschickt dazu, ihnen den Auftrag
+ zu geben.
+\end_layout
+
+\begin_layout Standard
+Die Recherchen bringen die drei Detektive zum Haus Terrill, das nicht mehr
+ seinem Erbauer gehört und leer steht.
+ Es eignet sich für Hitchcock, das es vermeintlich darin spukt.
+ Bei ihren Ermittlungen gibt es tatsächlich merkwürdige Ereignisse.
+ Justus besteht darauf, die mysteriösen Vorkommnisse aufzuklären, obwohl
+ Peter natürlich lieber darauf verzichten würde.
+\end_layout
+
+\begin_layout Standard
+Justus kommt durch seine Neugier der Lösung so nahe, dass er und Peter gefangen
+ genommen werden.
+ Bob und Morton können sie jedoch befreien und der erste Detektiv schlussfolgert
+, dass Terrill noch lebt und für die Spukerscheinungen verantwortlich ist.
+ Justus überführt Terrill, der aus finanziellen Gründen im Verborgenen agiert
+ hat und sein Haus zurückkaufen möchte.
+ Da Terrill sein Haus behalten möchte, schlägt Justus ihm vor, in dem Haus
+ Vorführungen seiner alten Filme durchzuführen.
+\end_layout
+
+\begin_layout Standard
+Wie es zu dem Auftrag kam: Das Detektivbüro ist frisch gegründet.
+ Peter hat von seinem Vater gehört, dass Alfred Hitchcock für seinen nächsten
+ Film ein Spukschloss sucht.
+ Und da kommt Justus 
+\emph on
+die
+\emph default
+ Idee: Wenn die drei Detektive von Hitchcock den Auftrag bekämen, ein Spukschlos
+s zu finden, wäre das eine gelungene Werbemaßnahme für das Detektivbüro.
+ Mit einer List gelingt es Justus, zu Hitchcock ins Filmstudio zu kommen:
+ Sie werden nur deswegen nicht vom Pförtner abgewiesen, weil Justus sein
+ schauspielerisches Talent einsetzt, um wie der Neffe Hitchcocks auszusehen.
+ Mit einer weiteren List ergattern sie den Auftrag und sogar ein Vorwort
+ für den als Buch veröffentlichten Fall:
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Es ist so -- 
+\begin_inset Quotes ald
+\end_inset
+
+, begann Justus zögernd, 
+\begin_inset Quotes ald
+\end_inset
+
+ich kann andere Leute gut imitieren.
+ Miss Larson dachte, Sie würden sich dafür interessieren, wie ich Sie als
+ Jungen darstelle.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Mich -- als Jungen?
+\begin_inset Quotes ard
+\end_inset
+
+ In der Stimme des berühmten Mannes grollte es, seine Züge verfinsterten
+ sich.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Wie meinst du das, bitte?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+So, Sir.
+\begin_inset Quotes ard
+\end_inset
+
+ Wieder schien sich Justus' Gesichtsform völlig zu verändern.
+ Seine Stimmlage wurde tiefer; er sprach mit blasiertem Akzent.
+ Er war ein anderer Mensch.
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Ich könnte mir denken, Sir
+\begin_inset Quotes ard
+\end_inset
+
+, sagte er in ganz fremdem Tonfall, 
+\begin_inset Quotes ald
+\end_inset
+
+daß Sie irgendwann sich selbst als Junge in einem Film auftreten lassen
+ wollen, und für diesen Fall --
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+Mr.
+ Hitchcock hatte die Brauen zusammengezogen.
+ Sein Gesicht lief vor Unmut rot an.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Fürchterlich!
+\begin_inset Quotes ard
+\end_inset
+
+ sagte er.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Hör auf damit -- sofort!
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+Justus wurde wieder er selbst.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Finden Sie nicht, daß ich Sie gut getroffen habe?
+\begin_inset Quotes ard
+\end_inset
+
+ fragte er.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Ich meine, Sie in meinem Alter?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Niemals.
+ Ein aufgeweckter, aufrechter Bursche war ich -- auf keinen Fall so wie
+ diese plumpe Karikatur, die du mir da vorgesetzt hast!
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Dann werde ich wohl noch etwas üben müssen
+\begin_inset Quotes ard
+\end_inset
+
+, seufzte Justus.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Meine Freunde sagen immer, es sei recht gut.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Ich verbitte mir das!
+\begin_inset Quotes ard
+\end_inset
+
+ donnerte Alfred Hitchcock.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Ich verbitte mir das ausdrücklich! Versprich mir, dieses Schaustück niemals
+ wieder aufzuführen, und ich \SpecialChar \ldots{}
+ zum Kuckuck, ich werde ein Vorwort für euer
+ Buch schreiben.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Vielen Dank, Sir!
+\begin_inset Quotes ard
+\end_inset
+
+ sagte Justus.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Dann wünschen Sie also, daß wir uns um ein Spukhaus für Sie bemühen?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Ja, ja -- meinetwegen.
+ ich kann euch nicht versprechen, daß ich davon Gebrauch mache, wenn ihr
+ eines finden solltet, aber sucht nur mal.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Besonderheiten
+\end_layout
+
+\begin_layout Standard
+Da dies der erste Fall der drei Detektive ist, muss dem Leser allerhand
+ vorgestellt werden.
+ Dazu gehören natürlich die drei Detektive, deren Aussehen kurz und bündig
+ umrissen wird, deren charakteristische Verhaltensweisen dafür umso genauer
+ beschrieben werden: Peter ist natürlich der Angsthase, der sich vor dem
+ Spukschlosse mit all seinen Erscheinungen fürchtet; Justus ist der schauspieler
+nde Schlaumeier, der die richtigen Schlüsse zieht, bei Abstimmungen Mehrheitsent
+scheide gegen ihn ignoriert und den Fall aufklärt; und Bob ist der Helfer
+ im Hintergrund.
+\end_layout
+
+\begin_layout Standard
+Der Autor führt die ebenfalls regelmäßig auftretenden Charaktere ein.
+ Der Schrottplatz und die Zentrale mit ihren Geheimzugängen werden vorgestellt.
+ Und die Detektive drucken ihre ersten Visitenkarten.
+ Morton und der Rolls-Royce kommen vor.
+ Und Alfred Hitchcock rahmt das Ganze ein: Er stellt in einer kurzen Einführung,
+ die als sein Vorwort zum schriftlichen Bericht der drei Detektive gedacht
+ ist, die drei und ihren neuesten Fall vor und lässt sich am Ende die noch
+ offenen Fragen beantworten.
+\end_layout
+
+\begin_layout Standard
+Der erste Fall ist ein Schnittmuster für die frühen Geschichten der Serie:
+ Ein 
+\begin_inset Quotes ald
+\end_inset
+
+übernatürliches
+\begin_inset Quotes ard
+\end_inset
+
+ Mysterium wird durch technische Erklärungen aufgedeckt.
+ 
+\end_layout
+
+\begin_layout Subsection
+Trivia
+\end_layout
+
+\begin_layout Standard
+Bob ist am Bein verletzt und ist dadurch in seinen Bewegungen eingeschränkt.
+ Da er außerdem in der Bücherei arbeitet, teilt Justus ihn für die Recherche
+ ein.
+\end_layout
+
+\begin_layout Standard
+Peter hat seine Briefmarkensammlung gegen ein tragbares Tonbandgerät getauscht,
+ das sie verwenden, um die unheimlichen Geräusche im Schloss aufzunehmen.
+ Die technische Ausrüstung der Detektei hat Bob um eine Blitzlichtkamera
+ ergänzt.
+\end_layout
+
+\begin_layout Subsection
+Bedeutung für die Reihe
+\end_layout
+
+\begin_layout Standard
+Nur ein Wort: Pflichtlektüre.
+\end_layout
+
+\begin_layout Standard
+Es wird der Grundstein gelegt und die Reihe wird detailliert und farbenfroh
+ begonnen.
+ Wer schon immer einmal wissen wollte, wie der 
+\begin_inset Quotes ald
+\end_inset
+
+Gebrauchtwarenhandel T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas
+\begin_inset Quotes ard
+\end_inset
+
+ von außen betrachtet aussieht, muss dieses Buch lesen.
+ Und die Geheimgänge, die in den Hörspielen so gut wie nie zur Sprache kommen,
+ wirst du hier auch kennenlernen.
+\end_layout
+
+\begin_layout Standard
+Alle bis auf einen -- Blacky, der ja erst im folgenden Fall des 
+\emph on
+Super-Papageis
+\emph default
+ auftaucht -- sind da: die drei Detektive, Skinny, Morton, Alfred Hitchcock,
+ Onkel Titus und Tante Mathilda, Patrick und Kenneth.
+ 
+\end_layout
+
+\begin_layout Chapter
+Die Charaktere
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel erfährst du alles über die Charaktere, die in den Fällen
+ auftauchen.
+ Da die Bücher ausführlicher als die Hörspiele sind, stammen die Informationen
+ im Wesentlichen aus den Büchern.
+ Wer nur die Hörspiele kennt, wird hier so manches dazu lernen.
+ Und wer die Bücher bisher einfach 
+\begin_inset Quotes ald
+\end_inset
+
+nur so
+\begin_inset Quotes ard
+\end_inset
+
+ flott gelesen hat, wird vielleicht doch noch ein oder zwei Details finden,
+ die er oder sie glatt überlesen hat.
+\end_layout
+
+\begin_layout Standard
+Gelegentlich kommt es vor, dass ein Hörspiel von der Beschreibung im Buch
+ abweicht.
+ Ich werde dann auf die Abweichung hinweisen.
+\end_layout
+
+\begin_layout Section
+Dr.
+ Altman
+\end_layout
+
+\begin_layout Standard
+Er arbeitet im Krankenhaus Rocky Beachs.
+ Wir lernen ihn im 
+\emph on
+Gespensterschloss 
+\emph default
+aus zwei Gründen kennen: Er hat sowohl Bobs Bein eingegipst als auch Justus'
+ verstauchten Fuß begutachtet.
+\end_layout
+
+\begin_layout Standard
+Bob hat sich sein Bein mehrfach gebrochen, als er versucht hatte, in der
+ Umgegend Rocky Beachs einen der Berge zu erklimmen.
+ Er ist fast zweihundert Meter den Abhang herunter gerollt und hat sich
+ dabei den mehrfachen Bruch zugezogen.
+ Bob gegenüber wurde das als neuer Rekord bezeichnet, Dr.
+ Altman hat daher den Gips folgerichtig einen 
+\begin_inset Quotes ald
+\end_inset
+
+Orden
+\begin_inset Quotes ard
+\end_inset
+
+ genannt.
+\end_layout
+
+\begin_layout Standard
+Justus ist nach dem Besuch von Skinny Norris auf dem Schrottplatz in Gedanken
+ gewesen und ist dann aus Unachtsamkeit auf einem Rohr ausgerutscht.
+ Gebrochen hat er sich nichts, aber sein Knöchel schwoll an und Titus hat
+ ihn ins Krankenhaus gefahren.
+ Dort hat sich dann Dr.
+ Altman um Justus gekümmert.
+ 
+\end_layout
+
+\begin_layout Section
+Andrews, Bob
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
 \begin_layout Plain Layout
+Charakter!Andrews, Bob
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Bob Andrews
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bob ist der dritte Detektiv und wird nur von seinen Eltern 
+\begin_inset Quotes ald
+\end_inset
+
+Robert
+\begin_inset Quotes ard
+\end_inset
+
+ genannt.
+ Er ist klein, schlank (oder drahtig), blond und 
+\begin_inset Quotes ald
+\end_inset
+
+vom Schlag eines Wissenschaftlers
+\begin_inset Quotes ard
+\end_inset
+
+ (
+\begin_inset CommandInset citation
+LatexCommand citep
+key "arthur:1972a"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Bob lebt bei seinen Eltern.
+ Sein Vater ist Journalist.
+\end_layout
+
+\begin_layout Standard
+In seiner Freizeit arbeit Bob als Aushilfe in der örtlichen Bibliothek.
+ Er hat daher nicht nur Zugriff auf viele Bücher, Zeitschriften und Zeitungen,
+ sondern durch seinen geübten Umgang mit den Medien auch einen Überblick
+ darüber, wo er welche Informationen finden kann.
+ Was Justus nicht bereits weiß, kann Bob üblicherweise an einem halben Tag
+ herausfinden.
+\end_layout
+
+\begin_layout Standard
+Bob führt ebenfalls das Archiv der Detektei.
+ Dazu gehört die Verwaltung der Aufträge.
+ Er schneidet Zeitungsberichte über die Detektive aus und klebt sie in ein
+ Album.
+\end_layout
+
+\begin_layout Standard
+Zu seinem Amt des Archivars und Rechercheurs ist Bob durch Weisung von Justus
+ gekommen.
+ Im 
+\emph on
+Gespensterschloss
+\emph default
+ trägt Bob einen Gips, Justus teilt ihn deswegen zur Recherche ein.
+\end_layout
+
+\begin_layout Section
+Andrews, Mama
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Andrews, Mama
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Mama Andrews
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Braunhaarig und schlank, zumindest erfahren wir das am Anfang des 
+\emph on
+Gespensterschlosses.
+
+\emph default
+ Sie nennt Bob bei seinem vollen Namen 
+\begin_inset Quotes ald
+\end_inset
+
+Robert
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Grant, Charles
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Grant, Charles
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Charles Grant
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein Freund Stephen Terrills.
+ Durch seine Arbeit als Maskenbilder kann er Terrill bei seinen Verkleidungen
+ helfen, die dieser anlegen muss, um die drei Detektive aus dem 
+\emph on
+Gespensterschloss
+\emph default
+ zu vertreiben.
+\end_layout
+
+\begin_layout Standard
+Mr Grant hilft Justus in der 
+\emph on
+flüsternden Mumie,
+\emph default
+ sich als Professor Yarborough zu verkleiden.
+ Im Hörspiel erwähnt Justus wegen der abweichenden Fallreihenfolge, dass
+ er Grant vom Film kenne.
+\end_layout
+
+\begin_layout Section
+Hitchcock, Alfred
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Hitchcock, Alfred
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Alfred Hitchcock
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hitchcock taucht in den Geschichten gelegentlich als Auftraggeber auf
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In welchen?
+\end_layout
+
+\end_inset
+
+, wird aber jedoch (fast) immer am Ende des Buches von den drei Detektiven
+ besucht.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In welchen?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Wie sind die drei Detektive auf ihn gekommen? Auf Js Idee vom Gespensterschloss
+ verweisen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Jonas, Justus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Jonas, Justus
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Justus Jonas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der erste Detektiv der drei ??? ist der intellektuelle Überflieger der Gruppe
+ und wird von seinen Kollegen gerne als Genie bezeichnet.
+ Das hört er aber gar nicht gern:
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Justus, du bist ein Genie!
+\begin_inset Quotes ard
+\end_inset
+
+ rief Peter.
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Hör auf!
+\begin_inset Quotes ard
+\end_inset
+
+ Justus zuckte leicht zusammen.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Nenn mich bloß nicht so.
+ Ich bemühe mich lediglich, meine angeborene Intelligenz durch ständiges
+ Üben voll zu entfalten.
+\begin_inset Quotes ard
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\size normal
+\emph on
+Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+8, 
+\begin_inset Quotes ald
+\end_inset
+
+Der Mann mit der Narbe
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Justus hat eine unmittelbar ins Auge fallende körperliche Eigenschaft, die
+ Hitchcock im Vorwort zum 
+\emph on
+Gespensterschloss
+\emph default
+ beschreibt: 
+\begin_inset Quotes ald
+\end_inset
+
+Aus diesem Grund bezeichne ich Justus (auch wenn ich übermäßig versucht
+ bin, ihn Fettwanst zu nennen) mit dem gleichen Wort wie seine Freunde:
+ stämmig.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aufgrund dieser Körperfülle, die er schon als kleines Kind hatte, wurde
+ Justus 
+\begin_inset Quotes ald
+\end_inset
+
+Dickerchen
+\begin_inset Quotes ard
+\end_inset
+
+ (in den Hörspielen 
+\begin_inset Quotes ald
+\end_inset
+
+Pummelchen
+\begin_inset Quotes ard
+\end_inset
+
+) genannt.
+ Er fiel oft hin und dies führte zu allgemeiner Heiterkeit -- aus dieser
+ Zeit stammt seine Abneigung dagegen, ausgelacht zu werden.
+ Er stopfte Wissen in sich hinein, um ernst genommen zu werden, und sobald
+ er lesen konnte, las er alles.
+ Er behielt vieles von dem, was er gelesen hatte, und Lehrer lernten schon
+ früh seine Belehrungskünste kennen.
+\end_layout
+
+\begin_layout Standard
+Justus hat im Alter von drei Jahren in der Fernsehserie 
+\begin_inset Quotes ald
+\end_inset
+
+Die kleinen Strolche
+\begin_inset Quotes ard
+\end_inset
+
+ die Rolle 
+\begin_inset Quotes ald
+\end_inset
+
+Baby Fatso
+\begin_inset Quotes ard
+\end_inset
+
+ gespielt und wird gelegentlich darauf angesprochen.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Im gestohlenen Preis wird das in der Handlung eingehender thematisiert.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als Kind hat er in Theateraufführung mitgespielt.
+\end_layout
+
+\begin_layout Standard
+Er ist handwerklich recht geschickt und bastelt in der Freiluftwerkstatt
+ auf dem Schrottplatz an allerlei Gerätschaften herum, die dann später zu
+ Ausrüstungsgegenständen der Detektive werden.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Beispiele: Spion, Walky-Talkies, Metalldetektor (Rubin), Peilsender (Bilder)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Peter und Bob nennen ihn 
+\begin_inset Quotes ald
+\end_inset
+
+Just
+\begin_inset Quotes ard
+\end_inset
+
+ und arbeiten ihm bei den Fällen zu.
+ Oft werden sie von ihm gegen ihren Willen auf Einsätze geschickt.
+ Auch Abstimmungen helfen dagegen nicht: Die Demokratie der drei Detektive
+ besteht darin, dass sie sich über ihr Vorgehen beraten, notfalls abstimmen
+ und dann das gemacht wird, was Justus möchte.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Da gibt's doch ein schönes Zitat in einer Folge.
+ Drache?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Justus ist Waisenkind und lebt bei seinem Onkel Titus und seiner Tante Mathilda.
+ Wenn er nachdenkt, knetet er seine Unterlippe.
+ Er liebt Rätsel und versucht, jedes Problem mit Logik zu knacken.
+ Gleiches erwartet er von seinen Freunden -- sollten sie einmal die Logik
+ vernachlässigen, so wird er nicht müde, sie darauf hinzuweisen, dass ein
+ logisches Vorgehen die vornehmste Pflicht eines jeden Detektivs ist.
+\end_layout
+
+\begin_layout Section
+Jonas, Mathilda
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Jonas, Mathilda
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Mathilda Jonas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mathilda ist Justus' Tante und hat ein sehr bestimmendes Wesen.
+ Zusammen mit ihrem Mann Mann Titus betreibt sie das 
+\begin_inset Quotes ald
+\end_inset
+
+Gebrauchtwaren-Center T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas
+\begin_inset Quotes ard
+\end_inset
+
+ in Rocky Beach.
+ Sie ist für das Geschäftliche zuständig und duldet weder von Familienmitglieder
+n noch Kunden Widerworte.
+\end_layout
+
+\begin_layout Standard
+Wenn Titus neue Ware erworben hat oder es etwas zu reparieren gilt, dann
+ verpflichtet sie mindestens Justus zur Erledigung der Arbeit.
+ Peter und Bob helfen oftmals mit, alle drei bessern so ihr Taschengeld
+ auf.
+\end_layout
+
+\begin_layout Section
+Jonas, Titus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Jonas, Titus
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Titus Jonas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Onkel von Justus und Ehemann von Mathilda, ist er derjenige, der 
+\begin_inset Quotes ald
+\end_inset
+
+neue
+\begin_inset Quotes ard
+\end_inset
+
+ Ware für das Gebrauchtwaren-Center erwirbt.
+ Diese Waren stammen aus einer Vielzahl von Quellen: Haushaltsauflösungen
+ wegen Umzug oder Abriss, Versteigerungen, Verkauf aus der Not heraus.
+ Zusammen mit Kenneth und Patrick, den irischen Gehilfen, fährt Titus mit
+ seinem Lastwagen zu den Kunden und holt die Waren ab.
+\end_layout
+
+\begin_layout Standard
+Bevor Titus das Gebrauchtwaren-Center mit Mathilda betrieb, war er in einem
+ Zirkus und spielte dort unter anderem Leierkasten.
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Gegenstand!Leierkasten
+\end_layout
+
+\end_inset
+
+ Er ist klein, hat einen großen Schnurrbart und eine große Nase.
+ Er raucht Pfeife und hat eine Bassstimme.
+\end_layout
+
+\begin_layout Section
+Larson, Henrietta
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Larson, Henrietta
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Henrietta Larson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dies ist die blonde Sekretärin Alfred Hitchocks, die von den drei Detektiven
+ gerne 
+\begin_inset Quotes ald
+\end_inset
+
+der Feldwebel
+\begin_inset Quotes ard
+\end_inset
+
+ genannt wird.
+ Sie besuchten gleichen Schule, Henrietta ist allerdings einige Jahre älter
+ und war daher einige Klassen über den dreien.
+ Henrietta hielt eher zu den Lehrern als zu den jüngeren Schülern und 
+\begin_inset Quotes ald
+\end_inset
+
+schikanierte die Jüngeren
+\begin_inset Quotes ard
+\end_inset
+
+, wie Bob so schön sagt.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\size footnotesize
+\emph on
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+2 und 3, 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei Detektive
+\begin_inset Quotes ard
+\end_inset
+
+ und 
+\begin_inset Quotes ald
+\end_inset
+
+Besuch mit Hintergedanken
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Linda
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Linda
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Morton
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Morton
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Morton ist der Chauffeur der drei Detektive.
+ Er fährt sie in einem schwarzen Rolls-Royce (
+\emph on
+dem
+\emph default
+ Rolls-Royce) mit goldenen Beschlägen.
+ Er ist bei der Autovermietung Gelbert angestellt.
+\end_layout
+
+\begin_layout Standard
+Morton ist Brite und stets zuvorkommend und zurückhaltend.
+ In der Regel bleibt er im oder am Fahrzeug, da er für dessen Zustand verantwort
+lich ist, begleitet die Detektive aber gelegentlich bei ihren Einsätzen.
+\end_layout
+
+\begin_layout Standard
+Er ist blond, annähernd zwei Meter groß und besteht darauf, die Form zu
+ wahren.
+ Das beinhaltet, dass ihn die drei Detektive nicht 
+\begin_inset Quotes ald
+\end_inset
+
+Mister Morton
+\begin_inset Quotes ard
+\end_inset
+
+ nennen, sondern schlicht mit 
+\begin_inset Quotes ald
+\end_inset
+
+Morton
+\begin_inset Quotes ard
+\end_inset
+
+ anreden.
+\end_layout
+
+\begin_layout Standard
+Im Original heißt Morton 
+\begin_inset Quotes ald
+\end_inset
+
+Worthington
+\begin_inset Quotes ard
+\end_inset
+
+, was für meine Ohren noch viel britischer klingt.
+ Aber da wollte wohl der Verlag den jungen Lesern kein 
+\begin_inset Quotes ald
+\end_inset
+
+ti-äitsch
+\begin_inset Quotes ard
+\end_inset
+
+ zumuten\SpecialChar \ldots{}
+
+\end_layout
+
+\begin_layout Standard
+Morton ist schlank, aber muskulös, und hat ein langes, gutmütiges Gesicht.
+\end_layout
+
+\begin_layout Standard
+Wir lernen ihn im 
+\emph on
+Gespensterschloss
+\emph default
+ in Kapitel 2 kennen und werden von ihm gleich darauf hingewiesen, wie erst
+ er auch den Auftrag nimmt, seinen jungen Fahrgäste zu dienen:
+\end_layout
+
+\begin_layout Quotation
+Er nahm die Dienstmütze ab und wandte sich an Justus.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Mr.
+\begin_inset space ~
+\end_inset
+
+Jonas?
+\begin_inset Quotes ard
+\end_inset
+
+ fragte er.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Ich bin der Chauffeur, Morton.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Hm -- guten Tag, Mr.
+\begin_inset space ~
+\end_inset
+
+Morton
+\begin_inset Quotes ard
+\end_inset
+
+, sagte Justus.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Aber nennen Sich mich ruhig Justus.
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Bitte, junger Herr --
+\begin_inset Quotes ard
+\end_inset
+
+ Morton sah ganz betrübt drein.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Sie müssen mich einfach Morton nennen, das gehört sich so.
+ Und es gehört sich auch, daß ich meine Dienstherrschaft anrede, wie es
+ dem guten Ton entspricht.
+ Sie sind ja nun meine Herrschaften, und ich möchte die Form wahren.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Norris, Skinner (Skinny)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Norris, Skinner
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Norris, Skinny
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Skinner Norris
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Skinny Norris
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Skinny Norris ist der 
+\begin_inset Quotes ald
+\end_inset
+
+Erzfeind
+\begin_inset Quotes ard
+\end_inset
+
+ der drei Detektive.
+ Er ist etwas älter als die drei Detektive.
+ Er ist schon im 
+\emph on
+Gespensterschloss 
+\emph default
+mindestens 16, da er bereits Auto fahren darf.
+ Er hat als erster seiner Klasse den Führerschein gemacht.
+ Seine Eltern sind wohlhabend und haben ihm einen blauen Sportwagen geschenkt.
+ Skinny wohnt nicht in Rocky Beach, er verbringt hier nur die Sommermonate
+ mit seinen Eltern.
+ Er ist groß und hager, daher kommt auch sein Spitzname.
+\end_layout
+
+\begin_layout Standard
+Er hält sich für intelligent und nutzt das Geld seiner Eltern und sein Auto,
+ um eine Führungsrolle zu spielen.
+ Er gibt gerne Partys.
+ Nur wenige der Kinder in Rocky Beach mögen ihn, und diejenigen, die ihn
+ mögen, schätzen wohl hauptsächlich sein Geld.
+\end_layout
+
+\begin_layout Standard
+Wenn wir Peter glauben dürfen, dann ähnelt Skinnys Stimme einem wiehernden
+ Pony (
+\emph on
+Gespensterschloss, 
+\emph default
+Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+12).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Skinny versucht üblicherweise den Fall, an dem auch Justus, Bob und Peter
+ arbeiten, vor ihnen zu lösen und schreckt nicht vor unfairen Mitteln zurück.
+ Wenn er ihn nicht lösen möchte, so will er den ddf wenigstens die Arbeit
+ erschweren.
+ Es ist ihm hierbei egal, ob seine Widersacher dadurch in gefährliche Situatione
+n geraten.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+O'Ryan, Kenneth
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!O'Ryan, Kenneth
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Kenneth O'Ryan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Irischer Gehilfe des Gebrauchtwaren-Centers T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas.
+\end_layout
+
+\begin_layout Section
+O'Ryan, Patrick
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!O'Ryan, Patrick
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Patrick O'Ryan
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Irischer Gehilfe des Gebrauchtwaren-Centers T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas.
+\end_layout
+
+\begin_layout Section
+Shaw, Peter
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Shaw, Peter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Peter Shaw
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Peter ist der zweite Detektiv und zwar kräftig gebaut und sportlich, aber
+ stets etwas ängstlich.
+ Wenn nachts ein Wolf heult, eine Tür unerwartet zufällt oder von Gespenstern
+ geredet wird, dann wird Peter früher oder später in etwa folgenden Satz
+ sagen: 
+\begin_inset Quotes ald
+\end_inset
+
+Also ich bin dafür, dass wir aufgeben.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obwohl er eher vorsichtig bis ängstlich ist, wird er bisweilen wagemutig
+ und riskiert zuviel.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+schwarze Katze, unsichtbarer Gegner, wo noch?
+\end_layout
+
+\end_inset
+
+ Das führt dann mitunter zu einem bösen Blick von Kommissar Reynolds.
+\end_layout
+
+\begin_layout Section
+Rex, Jonathan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Rex, Jonathan
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Jonathan Rex
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Person mit dem Spitznamen 
+\begin_inset Quotes ald
+\end_inset
+
+der Flüsterer
+\begin_inset Quotes ard
+\end_inset
+
+ ist eine Erfindung von Stephan Terrill.
+ Terrill -- lispelnd und mit Fistelstimme -- brauchte eine beeindruckende
+ Person, die ihn in geschäftlichen Angelegenheiten vertrat.
+ Über Terrill hieß es, dass er kaum mit anderen reden konnte, wenn er nicht
+ vor der Kamera stand.
+\end_layout
+
+\begin_layout Standard
+Rex war optisch ein Gegenentwurf zu Terrill: Er war groß, hatte eine Glatze,
+ und am Hals eine deutliche Narbe.
+ Er hat blaue Augen und verbirgt sie unter dem Vorwand, empfindliche Augen
+ zu haben, hinter einer Sonnenbrille.
+ Er behauptet, er könne nachts am besten sehen.
+ Die Narbe ist angeblich das Ergebnis eines Besuchs auf den Malaiischen
+ Inseln.
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Malaiische Inseln
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Insel!Malaiische Inseln
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nachdem der letzte Film Terrills angelaufen war und das Publikum mit Heiterkeit
+ auf das Lispeln reagierte, war nur noch Rex in der Öffentlichkeit zu sehen.
+ Er machte die Besorgungen, kündigte dem Personal und kaufte alle Kopien
+ von Terrills Filmen auf.
+ Die Geldbeträge, die dafür notwendig waren, wurden von Terrills Bank als
+ Darlehen gewährt -- als Sicherheit wurde das Schloss eingesetzt.
+\end_layout
+
+\begin_layout Standard
+Nach seinem vorgetäuschten Tod ging Terrill ganz in der Rolle von Rex auf
+ und plante, das 
+\emph on
+Gespensterschloss
+\emph default
+ zu kaufen, um wieder dort einziehen zu können.
+ Einmal im Monat geht Terrill als Jonathan Rex den Weg zum Schloss hoch
+ und sieht in seinem alten Haus nach dem Rechten.
+\end_layout
+
+\begin_layout Standard
+Rex wohnt im Schwarzen Canyon in der Oberen Talstraße 915 in unmittelbarer
+ Nähe zum Haus Terrill in einem Landhaus mit rotem Ziegeldach.
+ Das Haus steht dicht an einer Felswand, zwischen Haus und Felswand befinden
+ sich Voliéren, in denen Rex Hunderte von Sittichen beherbergt: Er züchtet
+ diese Vögel und möchte durch den Verkauf genug einnehmen, um das Schloss
+ von der Bank zurückzukaufen.
+ Durch diejenige Voliére, die direkt an der Felswand steht, kann man direkt
+ in den Tunnel gelangen, der durch den Berg in das Gespensterschloss führt.
+ Am Haus ist ein Raum mit einer großen Fensterwand, in dem Gartensessel
+ und ein Tisch stehen.
+ Durch die Fensterwand sind die Voliéren zu sehen.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+7, 
+\begin_inset Quotes ald
+\end_inset
+
+In der Falle!
+\begin_inset Quotes ard
+\end_inset
+
+ und Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+9, 
+\begin_inset Quotes ald
+\end_inset
+
+Gespenster -- Gespenster
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Rosa
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Rosa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Terrill, Stephan
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Terrill, Stephan
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Stephan Terrill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Er ist 
+\begin_inset Quotes ald
+\end_inset
+
+der Mann mit den tausend Gesichtern
+\begin_inset Quotes ard
+\end_inset
+
+ -- ein braunhaariger Schauspieler mit blauen Augen, der durch seine vielseitige
+n Rollen in Gruselfilmen in der Stummfilmzeit berühmt wurde und in aller
+ Welt bekannt war.
+ 
+\end_layout
+
+\begin_layout Standard
+Mit Erfindung des Tonfilms kam sein Abstieg.
+ Das Publikum erfuhr etwas, von dem es vorher nichts wusste: Terrill hatte
+ eine hohe Fistelstimme und lispelte.
+ Diese beiden Eigenschaften waren für ihn als Darsteller von gruseligen
+ Figuren in Filmen wenig vorteilhaft; sie führten dazu, dass sich die Zuschauer
+ über ihn amüsierten.
+ Einem der drei Detektive erging es ähnlich:
+\end_layout
+
+\begin_layout Quote
+\begin_inset Quotes ald
+\end_inset
+
+Herrlich!
+\begin_inset Quotes ard
+\end_inset
+
+ meinte Peter.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Das quiecksende Ungeheuer.
+ Das muß doch zum Schreien komisch gewesen sein.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Reaktion des Publikums brachte eine dramatische Wendung in Terrills
+ Leben, wie Bob schildert:
+\end_layout
+
+\begin_layout Quote
+[\SpecialChar \ldots{}
+] Stephan Terrill musste das Filmen aufgeben.
+ Er kündigte seinem Dienstpersonal, und er schickte auch seinen besten Freund
+ weg -- seinen Manager, einen gewissen Jonathan Rex.
+ Und schließlich beantwortete er nicht einmal mehr seine Post und ging auch
+ nicht mehr ans Telefon.
+ Er schloß sich da oben in seinem Schloß ein und wurde schwermütig.
+\end_layout
+
+\begin_layout Standard
+Später wurde vierzig Kilometer nördlich von Hollywood Terrills Autowrack
+ dicht am Meeresufer gefunden.
+ Er war über eine Klippe gestürzt.
+ Terrills Leiche jedoch wurde nie gefunden.
+\end_layout
+
+\begin_layout Standard
+Es war nicht klar, ob der Sturz über die Klippe ein Unfall war oder ob dies
+ Terrills Absicht war.
+ Nachdem er vermeintlich gestorben war, fand die Polizei sein Schloß verlassen,
+ dessen Tor offen, und in der Bibliothek einen Zettel, auf dem Folgendes
+ stand:
+\end_layout
+
+\begin_layout Quote
+Lebend wird mich die Welt nicht wiedersehen, aber mein Geist wird dieses
+ Haus niemals verlassen.
+ Ein Fluch soll für ewige Zeiten auf dem Schloß lasten.
+\end_layout
+
+\begin_layout Quote
+\align right
+Stefan Terrill
+\end_layout
+
+\begin_layout Standard
+Terrill hatte Bankschulden, da er den Bau seines Hauses durch ein Darlehen
+ finanziert hatte.
+ Bis zum Fall des 
+\emph on
+Gespensterschlosses
+\emph default
+ hatte seine Bank daher versucht, das Anwesen zu verkaufen -- sie blieb
+ jedoch erfolglos.
+\end_layout
+
+\begin_layout Standard
+Terrill hatte seinen Tod nur inszeniert.
+ Er lebte weiter -- allerdings unter der Identität seines Managers Jonathan
+ Rex.
+ Als dieser hoffte er, mit der Zucht von Sittichen genug Geld zu verdienen,
+ um das Schloß eines Tages von seiner Bank zu erwerben.
+ Damit in der Zwischenzeit das Schloss nicht an einen anderen Interessenten
+ verkauft würde, hat Terrill jeden, der seinen Fuß in das Gemäuer setzte,
+ mit Tricks aus seinen Gruselfilmen vergrault.
+\end_layout
+
+\begin_layout Standard
+Terrill ging in seinen Rollen auf, wie wir am Ende des 
+\emph on
+Gespensterschlosses
+\emph default
+ von ihm erfahren:
+\end_layout
+
+\begin_layout Quote
+Hier in diesem Zimmer [...] -- hier lebt Stephan Terrill.
+ Diese Kostüme.
+ Die Perücken hier.
+ Und all die Filme dort.
+ Sie sind mein eigentliches Ich.
+ Stephan Terrill ist nur ein Instrument, das aus diesen Kostümen und Perücken
+ seltsamen Gestalten schuf und Millionen Menschen in aller Welt spannende
+ Unterhaltung bereitete.
+ Viele Jahre lang war das Gespensterschloss das Letzte, worauf ich stolz
+ sein konnte.
+ Hier jagte ich den Leuten noch Schauer über den Rücken, anstatt von ihnen
+ ausgelacht zu werden.
+\end_layout
+
+\begin_layout Standard
+Während seiner Zeit als Geist im Gespensterschloss übte er beständig und
+ lernte so, sein Lispeln zu überwinden und mit tieferer Stimme zu sprechen.
+ Und er lernte, wie die unterschiedlichsten Personen zu sprechen: wie ein
+ Araber oder ein Gespenst, wie eine Frau oder ein Seeräuber.
+ Denn er träumte nicht nur vom Besitz seines Schlosses, sondern auch von
+ einem Comeback.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+3: 
+\begin_inset Quotes ald
+\end_inset
+
+Man spricht vom Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+ und Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+18, 
+\begin_inset Quotes ald
+\end_inset
+
+Interview mit einem Gespenst
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Die Orte
+\end_layout
+
+\begin_layout Section
+Freiluftwerkstatt
+\end_layout
+
+\begin_layout Standard
+Die Freiluftwerkstatt befindet sich auf dem Schrottplatz des Gebrauchtwarenhande
+ls T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas.
+ Hier bastelt Justus an seine Errungenschaften.
+ Die Werkstatt ist so gelegen, dass Tante Mathilda sie nicht einsehen kann.
+ Dafür haben die Jungs gesorgt, in dem sie mit Patrick und Kenneth Altmaterial
+ aufgeschichtet haben.
+\end_layout
+
+\begin_layout Standard
+Wenn die drei Detektive von Tante Mathilda unbemerkt in die Freiluftwerkstatt
+ gelangen wollen, gehen sie durch 
+\begin_inset Quotes ald
+\end_inset
+
+Grünes Tor I
+\begin_inset Quotes ard
+\end_inset
+
+ (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:ort-gebrauchtwarenhandel"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Section
+Gebrauchtwarenhandel T.
+\begin_inset space \thinspace{}
+\end_inset
+
+Jonas
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ort-gebrauchtwarenhandel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dieser Ort wird in den Geschichten auch gerne als 
+\begin_inset Quotes ald
+\end_inset
+
+der Schrottplatz
+\begin_inset Quotes ard
+\end_inset
+
+ bezeichnet.
+ Leonore Puschert selbst ist mit dieser Übersetzung des Begriffs 
+\begin_inset Quotes ald
+\end_inset
+
+salvage yard
+\begin_inset Quotes ard
+\end_inset
+
+ nicht glücklich.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Im
+\begin_inset space \space{}
+\end_inset
+
+Interview 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "rockybeach:2004"
+
+\end_inset
+
+ beschreibt sie das sehr schön.
+\end_layout
+
+\end_inset
+
+ In den Büchern wird er mit vielen Namen belegt, ein weiterer ist 
+\begin_inset Quotes ald
+\end_inset
+
+Lagerplatz
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Dieser Name ist vielleicht treffender als 
+\begin_inset Quotes ald
+\end_inset
+
+Schrottplatz
+\begin_inset Quotes ard
+\end_inset
+
+, da hier nicht nur einfach Schrott gelagert wird, sondern gebrauchte Waren
+ gelagert, restauriert und verkauft werden.
+\end_layout
+
+\begin_layout Standard
+Justus' Onkel Titus gehört der 
+\begin_inset Quotes ald
+\end_inset
+
+Trödelmarkt
+\begin_inset Quotes ard
+\end_inset
+
+, wie das Geschäft auch genannt wird.
+ Titus kauft die Ware ein, seine Frau Mathilda, die wir eigentlich nur als
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Tante Mathilda
+\begin_inset Quotes ard
+\end_inset
+
+ kennen, kümmert sich um die finanziellen Angelegenheiten und somit auch
+ den Verkauf.
+\end_layout
+
+\begin_layout Standard
+Der Schrottplatz liegt in Rocky Beach.
+ Er wird durch ein großes Eisentor betreten, das von einem abgebrannten
+ Gutshof stammt.
+ Dem Eingang gegenüber, auf der anderen Straßenseite, liegt das Wohnhaus
+ von Familie Jonas.
+ Der Lagerplatz ist von einem bunt bemalten Bretterzaun umgeben.
+ Die Malerarbeiten wurden von Titus und ortsansässigen Künstlern ausgeführt,
+ denen er ab und an Material schenkt.
+\end_layout
+
+\begin_layout Standard
+Die Vorderseite des Zauns ist mit Bäumen, Blumen, grünen Teichen und Schwänen
+ bemalt.
+ Außerdem ist hier eine Meereslandschaft zu sehen, die ein Geheimnis verbirgt:
+ einen geheimen Zugang zum Schrottplatz namens 
+\begin_inset Quotes ald
+\end_inset
+
+Grünes Tor I
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Geheimgang!Grünes Tor I
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Geheimgang!Grünes Tor I
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es tobt ein Sturm, der den grünen Ozean aufwühlt und eine Zweimastbark verschlin
+gt.
+ Das Auge eines Fisches, der das versinkende Schiff beobachtet, ist ein
+ Astloch.
+ Justus hat den Zaun so umgebaut, dass durch Drücken des Auges zwei Bretter
+ zur Seite schwingen.
+ Diesen Zugang kennen nur die drei Detektive.
+ Durch ihn gelangt man unbemerkt auf den Lagerhof -- unbemerkt vor allem
+ von Mathilda, die den Jungs sonst wieder Arbeit aufgibt.
+ Der Zugang führt von der Straße direkt in Justs Freiluftwerkstatt, die
+ Mathilda vom Büro aus nicht einsehen kann.
+ Die Werkstatt wird von einem fast zwei Meter breiten Dach geschützt, das
+ fast durchgehend die Innenseite des Zauns umläuft.
+ Hier stellen Justus und sein Onkel bei Regen die Ware unter.
+\end_layout
+
+\begin_layout Section
+Schloss Terrill
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Schloss Terrill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es ist 
+\emph on
+das Gespensterschloss 
+\emph default
+und steht dicht an der Felswand des Schwarzen Canyons,
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Schwarzer Canyon
+\end_layout
+
+\end_inset
+
+ einer engen und steinigen Schlucht in den Bergen nahe Hollywoods
+\emph on
+.
+
+\emph default
+ Wenn man den Weg durch die Schlucht verfolgt und den Hang erklimmt, gelangt
+ man in den Vorhof, der von Türmen flankiert wird.
+ Die breite Zufahrt führt zu einer alten Marmortreppe.
+ Passiert man die anschließende geflieste Terrasse, so erreicht man das
+ massive, geschnitzte Holztor.
+ Durch sie gelangt der Besucher in einen dunklen Flur, von dem zahlreiche
+ Korridore abgehen.
+ Geht er weiter, kommt er in die Wohnhalle, die zwei Stockwerke hoch ist.
+ Bedingt durch ihre Bauform -- hoch mit runden Wänden -- reflektiert sie
+ Schall sehr gut.
+ Steht der Sprecher in der Mitte des Raumes, so ist der Effekt am besten
+ zu hören: ein kräftiges Echo.
+ Stephan Terrill ließ die Halle bewusst so bauen und nannte sie 
+\begin_inset Quotes ald
+\end_inset
+
+die Echohalle
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die runden Wände sind mit Stoff bezogen, die über die Jahre verschlissen
+ sind; an ihnen laufen ringsherum hölzerne Sitzbänke entlang.
+ In die Wände sind kleine Nischen eingelassen, in denen Ritterrüstungen
+ stehen.
+\end_layout
+
+\begin_layout Standard
+Mehrere große Gemälde zeigen Terrill in unterschiedlicher Kostümierung aus
+ seinen Filmen.
+ Sie hängen an Drähten befestigt von einem Gesims unter der höher gelegenen
+ Galerie so hoch, dass keiner der drei Detektive sie erreichen kann, selbst
+ wenn er sich auf Zehenspitzen auf einen der Stühle stellt.
+\end_layout
+
+\begin_layout Standard
+In der Echohalle führt eine Wendeltreppe, die an der Wand entlang läuft,
+ ins obere Stockwerk auf eine Galerie.
+ Steigt man die Treppe weiter hinauf, so gelangt man in einem Türmchen weiter
+ nach oben und kann oben angelangt über den Canyon meilenweit blicken.
+\end_layout
+
+\begin_layout Standard
+Von der Echohalle gelangt der Besucher durch eine kleine Tür in den Vorführraum.
+ In diesem befindet sich ein kleines Kino mit ungefähr einhundert Plüschsesseln
+ und einer großen Orgel.
+ Die Leinwand hängt in Fetzen an der Wand, die Orgel ist eingestaubt und
+ voller Spinnweben, die Plüschpolster sind verschlissen.
+\end_layout
+
+\begin_layout Standard
+Stephan Terrill ließ sein Schloss nach einem Spukschloss aus einem seiner
+ Filme bauen.
+ Er ließ es mit Kulissen und Gegenständen aus seinen Filmen ausstatten.
+ Als Baumaterial wurde nicht nur Übliches verwendet, wie er uns selbst als
+ Jonathan Rex schildert:
+\end_layout
+
+\begin_layout Quotation
+Als Stephan das Schloß baute, ließ er aus aller Welt Bauteile von Häusern
+ herbeischaffen, in denen es angeblich spukte.
+ Aus Japan bekam er Balken von einem uralten, von Gespenstern heimgesuchten
+ Tempel, in dem eine adelige Familie bei einem Erdbeben umgekommen war.
+ Anderes Holz erwarb er von einem verfallenen Herrensitz in England, wo
+ sich ein schönes junges Mädchen erhängt hatte, um nicht den Mann heiraten
+ zu müssen, den ihr Vater für sie ausgesucht hatte.
+ Und dann ließ er noch Steine von einem Schloß am Rhein kommen, wo der Geist
+ eines wahnsinnigen Spielmanns umgehen sollte.
+ Es hieß, daß der Spielmann beim Schloßherrn mit seiner Kunst in Ungnade
+ gefallen war und viele Jahre im Verlies gefangen gehalten wurde.
+ Nach seinem Tode drangen oft die Klänge jener Melodie, die ihn in den Kerker
+ gebracht hatte, aus dem Tanzsaal des Schlosses.
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Oh Himmel!
+\begin_inset Quotes ard
+\end_inset
+
+ rief Peter.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Wenn all diese Typen jetzt im Gespensterschloß herumgeistern, wundert es
+ mich nicht, daß der Aufenthalt dort so unangenehm ist.
+\begin_inset Quotes ard
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+9 
+\begin_inset Quotes ald
+\end_inset
+
+Gespenster -- Gespenster
+\begin_inset Quotes ard
+\end_inset
+
 
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Nach dem vermeintlichen Tode Stephan Terrills stand das Schloss lange Jahre
+ leer, da es dort spukte und es somit unverkäuflich war.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+5: 
+\begin_inset Quotes ald
+\end_inset
+
+Besuch im Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+6, 
+\begin_inset Quotes ald
+\end_inset
+
+Echo aus dem Jenseits
+\begin_inset Quotes ard
+\end_inset
+
+, 
+\shape default
+\emph on
+Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+9 
+\begin_inset Quotes ald
+\end_inset
+
+Gespenster -- Gespenster
+\shape italic
+\emph default
+, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+13, 
+\begin_inset Quotes ald
+\end_inset
+
+Das blaue Phantom
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Zentrale, die
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Zentrale
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bei der Zentrale handelt es sich um einen nahezu zehn Meter langen Camping-Anhän
+ger.
+ Etwa ein Jahr vor der Zeit, zu der das 
+\emph on
+Gespensterschloss
+\emph default
+ spielt, hat Titus Jonas den Anhänger erworben.
+ Bei einem Unfall wurden die Seitenwände verbeult.
+ Letztendlich waren die Schäden so stark, dass sich kein Käufer fand, und
+ so hatte Justus die Erlaubnis erhalten, im Anhänger ein Büro einzurichten.
+ Die drei Detektive nutzen ihn als allgemeine Anlaufstelle, Ort der Beratung
+ und Ausgangspunkt für Ermittlungen.
+\end_layout
+
+\begin_layout Standard
+Nach und nach hatten Bob, Justus und Peter mit der Unterstützung von Kenneth
+ und Patrick Altmaterial um den Anhänger aufgehäuft und ihn so verborgen.
+ Die Jungs vermuten, dass Titus ihn vergessen hat, und die geheimen Zugänge
+ kennen nur sie.
+\end_layout
+
+\begin_layout Standard
+In der Zentrale sitzt Justus gerne auf seinem ebenfalls selbst reparierten
+ Drehstuhl an einem Schreibtisch, der wie alles in der Zentrale gebraucht
+ war: An einer Seite war er von einem Feuer angesengt worden.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+4.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Zentrale kann nur durch geheime Zugänge betreten werden.
+ Ein weiterer Geheimgang, Grünes Tor I, führt durch den Zaun in die Freiluftwerk
+statt.
+\end_layout
+
+\begin_layout Subsection
+Tunnel II
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Geheimgang!Tunnel II
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Geheimgang!Tunnel II
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der Freiluftwerkstatt ist ein Eisengitter gegen die Werkbank gelehnt.
+ Wenn man dieses zur Seite bewegt, kann man in ein weites und langes Rohrstück
+ kriechen.
+ Dieses ist Tunnel II, der an einer Holzplatte unter der Zentrale endet.
+ Die Holzplatte kann durch leichten Druck zur Seite geklappt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Der meistbenutzte Geheimgang ist 
+\begin_inset Quotes ald
+\end_inset
+
+Tunnel II
+\begin_inset Quotes ard
+\end_inset
+
+ (
+\emph on
+Grüner Geist, 
+\emph default
+Kapitel 4).
+ Es handelt sich hierbei um eine Wellblechröhre, die mit alten Decken ausgelegt
+ ist, damit die Jungs sich beim Kriechen durch die Röhre nicht die Knie
+ aufschürfen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gang III
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Ort!Geheimgang!Gang III
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Geheimgang!Gang III
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dies ist der unkomplizierteste Zugang zur Zentrale.
+ Neben der Zentrale befindet sich ein alter eiserner Kessel, der aus einer
+ mächtigen Dampfmaschine stammt.
+ Der Kessel ist so niedrig, dass die drei Detektive leicht geduckt durch
+ ihn hindurch gehen müssen.
+ Durch eine kreisrunde Öffnung gelangen die Jungs direkt in die Zentrale,
+ eine andere Öffnung wird von einer großen abgeschlossenen Eichentür verdeckt.
+ Die Tür lehnt gegen einen Haufen Granitblöcke, die von einem Hausabbruch
+ stammen.
+ Sie wird mit einem großen, rostigen Schlüssel aufgeschlossen, der in einer
+ Kiste liegt, die unter Schrott verborgen ist.
+\end_layout
+
+\begin_layout Chapter
+Die Gegenstände
+\end_layout
+
+\begin_layout Section
+Autotelefon
+\end_layout
+
+\begin_layout Standard
+Der Rolls-Royce, über den die Detektive verfügen können, ist äußerst komfortabel
+ ausgestattet.
+ Ein Autotelefon ist Teil dieser Ausstattung.
+ In den 60er Jahren des vergangenen Jahrhunderts, weit vor der Entwicklung
+ der Mobiltelefone, war dies wirklich luxuriös.
+\end_layout
+
+\begin_layout Section
+Druckmaschine
+\end_layout
+
+\begin_layout Standard
+Die Druckmaschine steht in der Freiluftwerkstatt.
+ Justus hat sie selbst in Stand gesetzt und auf ihr drucken die drei Detektive
+ ihre Visitenkarten.
+ Ihrer Nähe befindet sich der Zugang zu Tunnel II.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\size footnotesize
+\emph on
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+2 und 4, 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei Detektive
+\begin_inset Quotes ard
+\end_inset
+
+ und 
+\begin_inset Quotes ald
+\end_inset
+
+Man spricht vom Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Rolls-Royce
+\end_layout
+
+\begin_layout Standard
+Dieser Begriff betrachte ich als Gegenstand, weil er als 
+\emph on
+der Rolls-Royce
+\emph default
+ bezeichnet, und nicht etwa nur als Marke verwendet wird, und genau 
+\emph on
+ein
+\emph default
+ Fahrzeug bezeichnet: Das schwarze Auto mit goldenen Beschlägen, das den
+ drei Detektiven bei Bedarf zur Verfügung gestellt wird.
+\end_layout
+
+\begin_layout Standard
+Die drei Detektive hatten Wagen samt Chauffeur im einem Preisausschreiben
+ für dreißig Tage gewonnen.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Ab dem Fluch des Rubins: Der Text auf dem Reklamezettel, mit dem für den
+ Wettbewerb geworben wurde, wird im 
+\emph on
+Fluch des Rubins
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "arthur:1970b"
+
+\end_inset
+
+ angegeben:
+\end_layout
+
+\begin_layout Quotation
+Freie Fahrt im Rolls-Royce!
+\end_layout
+
+\begin_layout Quotation
+Wagen und Chauffeur gehören Ihnen für dreißig voll 24-Stunden-Tage!
+\end_layout
+
+\begin_layout Quotation
+Große Preisfrage: Wie viele Bohnen sind im Topf?
+\end_layout
+
+\begin_layout Quotation
+Autovermietung Gelbert & Co.
+\end_layout
+
+\begin_layout Plain Layout
+In eben diesem Fall sind die dreißig Tage abgelaufen.
+ Justus kann nach eine Verlängerung um zwei Tage heraushandeln.
+ Durch die Lösung des Falles gelangt August August, ihr Auftraggeber, zu
+ einigem Wohlstand.
+ Als Dank für ihre Hilfe können sie weiter über das Auto und den Chauffeur
+ verfügen: August bezahlt die Einsätze.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Den Rolls-Royce sehen wir das erste Mal im 
+\emph on
+Gespensterschloss:
+\end_layout
+
+\begin_layout Quotation
+Als aber das große Auto endlich kam, überstrahlte sein Glanz alles.
+ Er war ein Rolls-Royce älteren Baujahrs mit riesigen runden Scheinwerfern
+ und einer ungewöhnlich langgestreckten Kühlerhaube.
+ Die Karosserie war eckig und kastenförmig.
+ Doch alle Zierleisten und sogar die Stoßstangen waren vergoldet und blinkten
+ wie Geschmeide.
+ Der hochglänzende schwarze Lack spiegelte buchstäblich.
+ [\SpecialChar \ldots{}
+]
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Der Rolls-Royce ist der teuerste Serienwagen der Welt
+\begin_inset Quotes ard
+\end_inset
+
+, erklärte Justus.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Das Modell hier wurde ursprünglich für einen reichen arabischen Scheich
+ mit besonderem Hang zum Luxus gebaut.
+\begin_inset Quotes ard
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Gespensterschloss, Kap.
+\begin_inset space ~
+\end_inset
+
+2, 
+\begin_inset Quotes ald
+\end_inset
+
+Besuch mit Hintergedanken
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+Der Wagen ist mit einem Eisfach und einem vergoldeten Autotelefon ausgestattet.
+\end_layout
+
+\begin_layout Section
+Tafelkreide
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Gegenstand!Tafelkreide
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die drei Detektive markieren besondere Stellen mit Tafelkreide.
+ Dabei verwenden sie Kreide unterschiedlicher Farbe: Justus weiß, Bob rot,
+ Peter blau.
+ Die Reihenfolge der Fragezeichen auf den deutschen Büchern ist also 
+\begin_inset Quotes ald
+\end_inset
+
+Justus, Bob, Peter
+\begin_inset Quotes ard
+\end_inset
+
+ -- genauso, wie es die Autorenangabe bei der ersten Ausgabe des Narbengesichtes
+ anzeigt.
+\end_layout
+
+\begin_layout Standard
+Üblicherweise markieren die drei mit ihrem Gütezeichen -- dem Fragezeichen.
+ Sie verwenden die Kreide gleich im ersten Fall, dem 
+\emph on
+Gespensterschloss,
+\emph default
+ als Justus und Peter ihren Weg durch das Schloss kennzeichnen.
+\end_layout
+
+\begin_layout Standard
+Warum in den deutschen Büchern die Farben Weiß, Rot, Blau im Unterschied
+ zu den Farben Weiß, Blau, Grün aus den Originalausgaben gewählt wurden,
+ ist ungeklärt.
+ Die Übersetzerin Leonore Puschert konnte sich zumindest nicht an die Gründe
+ erinnern 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rockybeach:2004"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Auch: flüsternde Mumie; grüner Geist
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Taschenlampe
+\end_layout
+
+\begin_layout Standard
+Die Taschenlampe gehört zur Grundausstattung eines jeden guten Detektivs.
+ Wie sollte man sonst im Dunkeln Bösewichten nachstellen und Geheimnisse
+ lüften können?
+\end_layout
+
+\begin_layout Standard
+Im ersten Fall, dem 
+\emph on
+Gespensterschloss
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "arthur:1968"
+
+\end_inset
+
+, finden die Detektive die Taschenlampe ihres Erzfeindes Skinny Norris,
+ beim Schloss.
+ Sie trägt seine Initialen 
+\emph on
+S.N.
+
+\emph default
+ -- er verlor sie bei der Flucht aus dem Schloss.
+\end_layout
+
+\begin_layout Section
+Taschenmesser
+\end_layout
+
+\begin_layout Standard
+Justus hat ein Schweizer Taschenmesser mit acht Klingen.
+ Das erfahren wir im 
+\emph on
+Gespensterschloss.
+\end_layout
+
+\begin_layout Section
+Telefon und Verstärker
+\end_layout
+
+\begin_layout Standard
+Jede gute Detektei ist telefonisch erreichbar, und so hat Justus auf seinen
+ Namen einen Telefonanschluss für die drei Detektive organisiert.
+ Bezahlen wollen sie den Anschluss mit dem Geld, das sie bei Titus verdienen.
+\end_layout
+
+\begin_layout Standard
+In der Woche vor dem 
+\emph on
+Gespensterschloss
+\emph default
+ hat Justus den Anschluss bestellt, kurz nachdem die drei Jungs beschlossen
+ hatten, dass sie ihr Detektivunternehmen gründen wollen.
+\end_layout
+
+\begin_layout Standard
+Den Verstärker hat Justus aus einem Mikrofon und einem Autoradio gebastelt.
+ Wenn ein Telefonat von anderen mitgehört werden soll, dann hält der Sprecher
+ das Mikrofon so ans Telefon, dass er gleichzeitig in Muschel und Mikrofon
+ spricht.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+6, 
+\begin_inset Quotes ald
+\end_inset
+
+Spuk am Telefon?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Visitenkarte
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Gegenstand!Visitenkarte
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Visitenkarte ist 
+\emph on
+das
+\emph default
+ Requisit der drei Detektive.
+ Im ersten Fall, dem 
+\emph on
+Gespensterschloss 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "arthur:1968"
+
+\end_inset
+
+, druckt Justus in seiner Freiluftwerkstatt die ersten Exemplare der Karten
+ mittels einer selbst wieder in Stand gesetzten Druckerpresse.
+\end_layout
+
+\begin_layout Standard
+Die Karte wird in jedem Fall in einer Art Ritual überreicht.
+ Die drei Detektive unterhalten sich mit dem potentiellen Auftraggeber und
+ Justus zückt eine der Karten.
+ In den Hörspielen äußert dann begleitend den typischen Satz 
+\begin_inset Quotes ald
+\end_inset
+
+Darf ich Ihnen eine unserer Visitenkarten überreichen?
+\begin_inset Quotes ard
+\end_inset
+
+.
+ In den Büchern wird in frühen Auflagen von 
+\begin_inset Quotes ald
+\end_inset
+
+Geschäftskarten
+\begin_inset Quotes ard
+\end_inset
+
+ gesprochen.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Das ist eine dicht im Original bleibende Übertragung der amerikanischen
+ 
+\emph on
+business card.
+\end_layout
+
+\end_inset
+
+ Die Visitenkarte wird in den Büchern gerne so dargestellt:
+\end_layout
+
+\begin_layout Standard
+\align center
+Die drei Detektive
+\begin_inset Newline newline
+\end_inset
+
+Wir übernehmen jeden Fall
+\begin_inset Newline newline
+\end_inset
+
+???
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="20" columns="2">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0" special="l">
-<column alignment="center" valignment="top" width="0" special="l">
+<lyxtabular version="3" rows="3" columns="2">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sprache
+Erster Detektiv:
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Name der Reihe
+Justus Jonas
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Vereinigte Staaten von Amerika
+Zweiter Detektiv:
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-The Three Investigators
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Deutschland
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Die drei ???
+Peter Shaw
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Spanien
+Recherchen und Archiv:
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Los Tres Investigadores
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Catalan ?
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Els Tres Investigadors
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Portugiesisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Os Três Investigadores
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Französisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Les trois jeunes détectives
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Italienisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-I Tre Investigatori
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Polnisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Przydody Trzech Detektywów
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-(slovak)
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Traja pátraci
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kroatisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Tri detektiva
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Dänisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-De Tre Detektiver
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Schwedisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Tre Deckare
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Finnisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Kolme etsivää
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Norwegisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Njósna???renninggunni
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Niederländisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-De 3 Speurders / Detectives
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Belgien
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-De 3 Detectives
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Griechisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-OI TPEI$
-\backslash
-Sigma$NTETEKTIB
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Indonesisch(? :-))
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Trio Detektiv
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Malayisch
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Tiga Penyiasat
+Bob Andrews
 \end_layout
 
 \end_inset
@@ -1463,19 +4049,511 @@ Tiga Penyiasat
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption
+\begin_layout Standard
+Der Empfänger der Visitenkarte fragt dann in der Regel nach den drei Fragezeiche
+n.
+ Justus hat genau das beabsichtigt, wie wir bereits im 
+\emph on
+Gespensterschloss
+\emph default
+ sehen:
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Neuzeitliche Ermittlungsverfahren erfordern eingehendes Recherchieren
+\begin_inset Quotes ard
+\end_inset
+
+, sagte Justus noch.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Aber warum beäugst du unsere Karte so sonderbar? Darf ich fragen, was dich
+ daran stört?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Na ja, die Fragezeichen
+\begin_inset Quotes ard
+\end_inset
+
+, gab Bob zu.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Was soll das eigentlich?
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Auf die Frage habe ich gewartet
+\begin_inset Quotes ard
+\end_inset
+
+, sagte Peter.
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Just meinte, du würdest bestimmt fragen.
+ Und jeder andere auch, sagte er.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Das Fragezeichen
+\begin_inset Quotes ard
+\end_inset
+
+, erläuterte Just, 
+\begin_inset Quotes ald
+\end_inset
+
+ist das universelle Symbol des Unbekannten.
+ Wir sind bereit, Rätsel, Geheimnisse und Verwicklungen aller Art zu lösen,
+ sofern man uns damit betraut.
+ Daher soll das Fragezeichen unser Gütezeichen sein.
+ Drei Fragezeichen -- das bedeutet immer: Die drei Detektive!
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+Bob dachte, Justus sei am Ende, aber er hätte es besser wissen sollen.
+ Justus kam jetzt erst richtig in Fahrt.
+\end_layout
+
+\begin_layout Quotation
+\begin_inset Quotes ald
+\end_inset
+
+Und überdies
+\begin_inset Quotes ard
+\end_inset
+
+, sagte er, 
+\begin_inset Quotes ald
+\end_inset
+
+werden die Fragezeichen Interesse wecken.
+ Die Leute werden fragen, was sie zu bedeuten haben -- genau wie du.
+ Man wird uns daran erkennen.
+ Sie werden kräftig für uns werben.
+ Jedes Unternehmen braucht Werbung, um Kunden zu gewinnen.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Quotation
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+1 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei Detektive
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
-Name der Reihe in verschiedenen Sprachen.
- Quelle: 
-\backslash
-url{www.rocky-beach.com/cgi-bin/print.pl}
+Was ist aus dem deutlich längeren Text aus dem 
+\begin_inset Quotes ald
+\end_inset
+
+Fragezeichen
+\begin_inset Quotes ard
+\end_inset
+
+ geworden?
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Überarbeitete Fassung nach der Toteninsel aufnehmen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aufnehmen, sobald das in einem Fall vorkam: Zunächst ist nur die Vorderseite
+ der Visitenkarte bedruckt.
+ In späteren Fällen ist auf der Rückseite die Telefonnummer zu finden.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nach dem grünen Geist aufnehmen: Der große Bruder der Visitenkarte ist ein
+ Briefbogen, der dem zweifelnden Betrachter der Visitenkarte überreicht
+ wird.
+ Er wurde den Detektiven nach erfolgreichem Abschluss einiger Fälle vom
+ Kommissar der örtlichen Polizei ausgestellt.
+ Dies ist sein Wortlaut:
+\end_layout
+
+\begin_layout Quote
+Der Inhaber dieses Ausweises ist ehrenamtlicher Junior-Assistent und Mitarbeiter
+ der Polizeidirektion von Rocky Beach.
+ Die Behörde befürwortet jegliche Unterstützung von dritter Seite.
+\end_layout
+
+\begin_layout Quote
+\align right
+gez.
+ Samuel Reynolds
+\begin_inset Newline newline
+\end_inset
+
+Polizeihauptkommissar
+\end_layout
+
+\begin_layout Plain Layout
+(Ausstellung taucht in keinem deutschen Buch auf.
+ Der entsprechende Abschnitt vom Ende des grünen Geists wurde nicht ins
+ Deutsche übertragen.)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Phänomene und Erscheinungen
+\end_layout
+
+\begin_layout Section
+Das blaue Phantom
+\end_layout
+
+\begin_layout Standard
+Das blaue Phantom sitzt im großen Saal von Schloss Terrill und spielt Orgel.
+ Dabei wird es gelegentlich von Nebel eingehüllt.
+ Die Musik ist schauerlich und soll dazu beitragen, dass der Besucher vertrieben
+ wird.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+3 
+\begin_inset Quotes ald
+\end_inset
+
+Man spricht vom Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Part
+Die Bücher
+\end_layout
+
+\begin_layout Chapter
+Die Buchreihe
+\end_layout
+
+\begin_layout Standard
+Die Buchreihe hat eine erstaunliche Entwicklung genommen, die in dieser
+ Form vermutlich einzigartig ist.
+ Die Serie entstand in den sechziger Jahren des vergangenen Jahrhunderts
+ in den Vereinigten Staaten von Amerika und wurde neben anderen Sprachen
+ auch ins Deutsche übertragen.
+ Nachdem sie in ihrem Ursprungsland aufgrund zurückgehender Verkaufszahlen
+ eingestellt worden war, wurde die Reihe in Deutschland fortgeführt.
+ Neuere Bände erschienen nun zunächst auf Deutsch.
+ Nachdem der Erfolg in Deutschland weiter anhielt, wurde einige Bücher dann
+ ins Amerikanische Englisch übertragen.
+\end_layout
+
+\begin_layout Standard
+Doch der Reihe nach: Wie ist die Serie eigentlich entstanden?
+\end_layout
+
+\begin_layout Standard
+Robert Arthur ist der geistige Vater der Serie 
+\begin_inset Quotes ald
+\end_inset
+
+Alfred Hitchcock and The Three Investigators in \SpecialChar \ldots{}
+
+\begin_inset Quotes ard
+\end_inset
+
+ -- zu deutsch etwa 
+\begin_inset Quotes ald
+\end_inset
+
+Alfred Hitchcock und die drei Detektive in \SpecialChar \ldots{}
+
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Er hatte von 1961 bis 1968 bei dem Verlag Random House eine Reihe mit Kriminalg
+eschichten unter den Namen 
+\begin_inset Quotes ald
+\end_inset
+
+Alfred Hitchcock presents
+\begin_inset Quotes ard
+\end_inset
+
+ herausgebracht, die für Erwachsene konzipiert und aufgrund der Beliebtheit
+ des Regisseurs sehr erfolgreich war.
+ Wie auch die späteren 
+\begin_inset Quotes ald
+\end_inset
+
+Three Investigators
+\begin_inset Quotes ard
+\end_inset
+
+-Geschichten wurde von ihm zu jedem Buch eine Einführung verfasst, die scheinbar
+ von Hitchcock stammte.
+\end_layout
+
+\begin_layout Standard
+Robert Arthur schlug dem Verlag vor, eine Buchserie für junge Leser zu schreiben
+, die ebenfalls unter der Schirmherrschaft Hitchcocks stehen sollte.
+ Der Verlag stimmte zu und 1964 erschien der erste Band mit dem Titel 
+\begin_inset Quotes ald
+\end_inset
+
+Alfred Hitchcock and the Three Investigators in the Secret of Terror Castle
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Im Jahr zuvor hatte er die Idee für die Geschichtensammlung 
+\emph on
+Alfred Hitchcock's Solve-Them-Yourself Mysteries,
+\emph default
+ die er auch größtenteils selbst verfasste und die ebenfalls bei Random
+ House erschien.
+ Diese Geschichten waren in der Art der deutschen Übersetzungen der Geschichten
+ über die drei Detektive abgefasst: Es gab eine Einleitung, die scheinbar
+ von Hitchcock stammte, und die Geschichten selbst waren durchsetzt von
+ Hinweisen an die Leser, die mitraten sollten.
+ Diese Erzählform hat Arthur aber nicht bei den Geschichten über die drei
+ Detektive verwandt.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Das in das Kapitel über die Übersetzungen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jedes Jahr schrieb Arthur zwei Bücher für diese Serie, bis zu seinem Tode
+ 1969 hat er insgesamt zehn verfasst.
+ Hitchcock selbst hat nie für die Serie geschrieben -- sein Name wurde nur
+ zu Vermarktungszwecken verwendet.
+ Gegen Tantiemen hat er dem Verlag erlaubt, seinen Namen und eine Abbildung
+ seines Kopfes zu nutzen.
+\end_layout
+
+\begin_layout Chapter
+Hitchcocks Fingerzeige
+\end_layout
+
+\begin_layout Standard
+Eine Besonderheit bei den deutschen Übersetzungen waren die 
+\begin_inset Quotes ald
+\end_inset
+
+Fingerzeige
+\begin_inset Quotes ard
+\end_inset
+
+ von Alfred Hitchcock, die in die Geschichten eingestreut waren.
+ Sie waren in den Originalausgaben nicht vorhanden, sondern wurden von der
+ Übersetzerin Leonore Puschert verfasst.
+ Woher die Idee dafür kam, lässt sich nicht mir Sicherheit sagen 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Siehe Interview mit Leonore Puschert.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Einführung
+\end_layout
+
+\end_inset
+
+Die Fingerzeige werden im ersten Band der Reihe, dem 
+\emph on
+Gespensterschloss 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "arthur:1968"
+
+\end_inset
+
+,
+\emph default
+ im Vorwort eingeführt:
+\end_layout
+
+\begin_layout Quotation
+Zu meinem Privatvergnügen (das habe ich mir vom Verfasser des Berichtes
+ ausgebeten) werde ich Euch beim Lesen durch versteckte Fingerzeige Gelegenheit
+ geben, die drei Detektive in ihrem Vorgehen zu überprüfen oder -- warum
+ nicht? -- zu überrunden.
+ Doch Ihr werdet von mir höchstens ein Nasenlänge Vorsprung bekommen (das
+ haben sich der Verfasser und die drei Detektive ihrerseits ausgeben) --
+ der Rest ist Eure Sache!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Ursprung
+\end_layout
+
+\end_inset
+
+Die Fingerzeige bestanden aus wenigen Sätzen, die zum mitraten anregen sollten.
+ Sie waren eine logische Fortführung der Fingerzeige in anderen Büchern
+ Hitchcocks, die sehr wohl in der Originalausgabe diese enthielten und auch
+ zum Mitraten gedacht waren.
+ Kosmos hat sich wohl damals gedacht, dass das auch passen könnte.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Aussehen
+\end_layout
+
+\end_inset
+
+Links neben dem Text war das gleiche Bild von Hitchcock gesetzt, das auch
+ den Schutzumschlag des Buches zierte.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Beispiel einfügen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Itemize
+Fingerzeig-Besonderheit bei der ersten Auflage des Narbengesichts.
+ Bild einfügen.
+\end_layout
+
+\begin_layout Itemize
+Weitere Entwicklung der Fingerzeige in der Reihe.
+ Wann wurden sie eingestellt.
+\end_layout
+
+\begin_layout Itemize
+Wie sieht's bei Neuauflage der alten Fälle aus?
 \end_layout
 
 \end_inset
@@ -1487,18 +4565,157 @@ url{www.rocky-beach.com/cgi-bin/print.pl}
 Die Hörspiele
 \end_layout
 
-\begin_layout Chapter
-Die Hörspiele
+\begin_layout Chapter*
+Sprecherbesetzungen
 \end_layout
 
-\begin_layout Chapter
-Die Personen
+\begin_layout Standard
+Bei den Sprecher führe ich die drei Detektive und ihre Sprecher nicht auf,
+ da sie immer gleich besetzt sind: Justus Jonas wird von Oliver Rohrbeck
+ gesprochen, Peter Shaw von Jens Wawrczeck und Bob Andrews von Andreas Fröhlich.
+ Desweiteren spricht Andreas von der Meden stets Morton und Skinny Norris.
+ Tante Mathildas und Onkel Titus' Rolle wurden in unterschiedlichen Auflagen
+ unterschiedlich besetzt, in der 
+\begin_inset Quotes ald
+\end_inset
+
+Endfassung
+\begin_inset Quotes ard
+\end_inset
+
+ werden sie von Karin Lieneweg und Andreas Beurmann gesprochen.
 \end_layout
+
+\begin_layout Standard
+Die Geschichte wird von einem Erzähler begleitet, der von drei Personen
+ gesprochen wird: Peter Pasetti (Folgen 1 bis 64), Matthias Fuchs (Folgen
+ 65 bis 103) und Thomas Fritsch (ab Folge 104).
+ War zu Beginn der Erzähler noch mit Alfred Hitchcock gleichzusetzen, ist
+ er später nur noch ein reiner Erzähler ohne Namen.
+ Grund hierfür wird sein, dass die Lizenz, Hitchcocks Namen verwenden zu
+ können, abgelaufen ist.
+ Mehr dazu später.
+ 
+\begin_inset Note Note
+status open
 
 \begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 3 - Die Hörspiele/Personenverzeichnis.lyx"
+Abgelaufene Hitchcock-Lizenz beschreiben.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Die Fälle
+\end_layout
+
+\begin_layout Section
+Das Gespensterschloss
+\end_layout
+
+\begin_layout Subsection
+Eckdaten
+\end_layout
+
+\begin_layout Itemize
+Buch: H.
+ G.
+ Francis
+\end_layout
+
+\begin_layout Itemize
+Regie: Heikedine Körting
+\end_layout
+
+\begin_layout Itemize
+Musik: B.
+ Brac/B.
+ George
+\end_layout
+
+\begin_layout Itemize
+Erscheinungsdatum: 01.03.1980
+\end_layout
+
+\begin_layout Itemize
+Laufzeit: ca.
+ 46 min.
+\end_layout
+
+\begin_layout Subsection
+Sprecher
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="center" valignment="top" width="0">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rolle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sprecher
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stephan Terrill/Jonathan Rex/Rosa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Wolf Rahtjen
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Charles Grant/Linda
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Horst Breiter
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
 
 \end_inset
 
@@ -1509,113 +4726,34 @@ filename "Teil 3 - Die Hörspiele/Personenverzeichnis.lyx"
 Die Sprecher
 \end_layout
 
-\begin_layout Plain Layout
-In diesem Kapitel werden in alphabetischer Folge die Sprecher aufgeführt.
- Wenn ein Name ein Pseudonym ist, wird dies vermerkt.
- Sofern bekannt, wird der Name der Person, die hinter dem Pseudonym steckt,
- aufgeführt.
-\end_layout
-
-\begin_layout Plain Layout
-Damit ein Sprecher leichter aufgefunden werden kann, sind in folgender Tabelle
- jeder Rolle die Sprecher zugeordnet.
- Es werden ebenfalls die Folgen aufgeführt, in denen die Rollen von dieser
- Person gesprochen werden.
-\end_layout
-
-\begin_layout Chapter
-Die Musik
+\begin_layout Standard
+Ich beschreibe hier nur das für die drei Fragezeichen Relevante.
+ Sonst könnte ich bei jedem eine kleine Biographie schreiben und das Buch
+ würde riesig werden.
+ Googeln könnt ihr selbst und in der Quelle der Weisheit mehr nachlesen
+ auch.
 \end_layout
 
 \begin_layout Section
-Die 
-\begin_inset Quotes gld
-\end_inset
-
-alte
-\begin_inset Quotes grd
-\end_inset
-
- Musik
+Fröhlich, Andreas
 \end_layout
 
-\begin_layout Section
-Die neue Musik
-\end_layout
-
-\begin_layout Section
-...
- und noch neuere Musik
-\end_layout
-
-\begin_layout Chapter
-Die Produktion
-\end_layout
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
 
 \begin_layout Plain Layout
-Wer hatte die Idee? Wie wurden die Sprecher gefunden? Warum sind es gerade
- diese Sprecher geworden? Warum Europa? War es schwierig, die Lizenzen zu
- bekommen?
+Sprecher!Fröhlich, Andreas
 \end_layout
-
-\begin_layout Section
-Europa
-\end_layout
-
-\begin_layout Section
-Heikedine Körting
-\end_layout
-
-\begin_layout Chapter
-Die Coverbilder
-\end_layout
-
-\begin_layout Plain Layout
-Das waren ja die Bilder von Aiga Rasch.
- Sie entsprechen den Bildern der Bücher und wurden gelegentlich ausgetauscht
- (Welche Folgen?).
-\end_layout
-
-\begin_layout Chapter
-Die Unterschiede
-\end_layout
-
-\begin_layout Chapter
-Die Live-Auftritte
-\end_layout
-
-\begin_layout Section
-Die drei ??? und der Super-Papagei
-\end_layout
-
-\begin_layout Section
-Die drei ??? und der seltsame Wecker
-\end_layout
-
-\begin_layout Part
-Die Filme
-\end_layout
-
-\begin_layout Chapter
-Die Filme
-\end_layout
-
-\begin_layout Chapter
-Die Unterschiede
-\end_layout
-
-\begin_layout Part
-Die Kultur
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset include
-LatexCommand input
-filename "Teil 5 - Die Kultur/Die Kultur.lyx"
 
 \end_inset
 
 
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Andreas Fröhlich
 \end_layout
 
 \end_inset
@@ -1623,108 +4761,349 @@ filename "Teil 5 - Die Kultur/Die Kultur.lyx"
 
 \end_layout
 
-\begin_layout Chapter
-\start_of_appendix
-Ideen
+\begin_layout Standard
+Spricht Bob Andrews.
 \end_layout
 
 \begin_layout Standard
-In diesem Kapitel sammele ich Ideen zu Inhalten, die in das Buch aufgenommen
- werden könnten.
- Alles, was hier steht, hat seine Form noch nicht so gefunden, dass es irgendwoa
-nders aufgenommen werden konnte.
- Das heißt im schlechtesten Fall natürlich, dass es irgendwann rausfliegen
- wird, weil die Ideen nicht gut ist.
-\end_layout
-
-\begin_layout Section
-Technik, die sich überlebt hat
+(* 11.
+ Juli 1965 in West-Berlin).
+ Synchron-, Hörspiel- und Off-Sprecher.
+ Zudem ist er als Synchronregisseur und Dialogbuchautor.
 \end_layout
 
 \begin_layout Standard
-Hier führe ich die Techniken auf, die erwähnt werden, aber mittlerweile
- aus der Mode gekommen sind.
- Kandidaten dafür sind:
-\end_layout
-
-\begin_layout Itemize
-Das Autotelefon.
- Ein Lacher während der Aufführung des Super-Papageis.
- In Zeiten, in denen Mobiltelefone normal sind, ist eine Autotelefon nichts
- Besonderes mehr.
-\end_layout
-
-\begin_layout Itemize
-Die Telefonlawine.
- Immer noch möglich, aber nicht einmal die E-Mail-Lawine ist so ausgefallen
- wie die Telefonlawine damals Ende des 60er Jahre des vergangenen Jahrhunderts.
- Ein 
-\emph on
-smart mob
-\emph default
- wäre vielleicht annähernd ausgefallen.
-\end_layout
-
-\begin_layout Section
-Was ich von den drei Detektiven gelernt habe
-\end_layout
-
-\begin_layout Standard
-Das mag viel sein oder auch nicht.
- Vermutlich ist das ein Abschnitt im Teil über die Kultur.
- Was habe 
-\emph on
-ich
-\emph default
- denn gelernt?
-\end_layout
-
-\begin_layout Section
-Was man von den drei Detektiven lernen konnte
-\end_layout
-
-\begin_layout Standard
-Im Gegensatz zu der vorigen Idee ist dies eine Zusammenfassung der Einstellungen
- und Geisterhaltungen und Ähnlichem, die aus den Büchern entgegenströmt.
- Quasi der Zeitgeist in Verpackung.
- Das Ganze sollte mit einer guten Prise Humor genommen werden.
- Eine erste Auswahl:
-\end_layout
-
-\begin_layout Itemize
 \begin_inset Quotes ald
 \end_inset
 
-Einsteigen
+Deutsche Stimme
 \begin_inset Quotes ard
 \end_inset
 
- ist erlaubt, wenn man der Gute ist.
- Das zeigen und die Detektive immer wieder.
-\end_layout
-
-\begin_layout Itemize
-Vegetarisches Essen ist merkwürdig.
- Das müsste aus dem lachenden Schatten stammen.
-\end_layout
-
-\begin_layout Itemize
-Man lügt nicht.
- Korollar: Wer lügt, führt etwas Böses im Schilde oder hat zumindest Dreck
- am Stecken.
- (Wieder der lachende Schatten: Er ist gar kein Vegetarier.)
-\end_layout
-
-\begin_layout Itemize
-Niederlagen sind nur Rückschläge.
- Wenn sich die drei mal irren (und das kommt andauernd vor), machen sie
- weiter und kommen schließlich zum Ziel.
+ von John Cusack und Edward Norton.
 \end_layout
 
 \begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "Teil 2 - Die Bücher/Anhang-Buecher.lyx"
+Er sprach Gollum / Sméagol im 
+\emph on
+Herrn der Ringe 
+\emph default
+und führte in der Trilogie die Synchronregie und war auch Dialogbuchautor.
+\end_layout
+
+\begin_layout Standard
+Cameo-Auftritt als Schrottplatzkunde in 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei ??? -- Die Geisterinsel
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Breiter, Horst
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Breiter, Horst
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Horst Breiter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spricht Charles Grant im 
+\emph on
+Gespensterschloss.
+\end_layout
+
+\begin_layout Section
+von der Meden, Andreas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Andreas von der Meden
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!von der Meden, Andreas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spricht Skinny Norris in allen Folgen.
+\end_layout
+
+\begin_layout Section
+Rahtjen, Wolf
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Rahtjen, Wolf
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Wolf Rahtjen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spricht Stephan Terrill im 
+\emph on
+Gespensterschloss.
+\end_layout
+
+\begin_layout Section
+Rohrbeck, Oliver
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Rohrbeck, Oliver
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Oliver Rohrbeck
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Oliver Rohrbeck (* 21.
+ März 1965 in Berlin) spricht Justus Jonas.
+ Er leiht noch weiteren Hörspielcharakteren seine Stimme und ist außerdem
+ Schauspieler, Synchronsprecher, Dialogregisseur und Dialogbuchautor.
+\end_layout
+
+\begin_layout Standard
+Er ist Gründer und Geschäftsführer der Lauscherlounge, und veranstaltet
+ unter dieser Flagge die 
+\emph on
+record release parties
+\emph default
+ der jeweils neusten Drei-Fragezeichen-Folge.
+\end_layout
+
+\begin_layout Standard
+Bevor Oliver Justus sprach, hatte er bereits Erfahrungen als Synchronsprecher
+ gesammelt.
+ Bei Europa sprach er dann Julian von den fünf Freunden, dazu kam dann 1978/9
+ (?) Justus.
+\end_layout
+
+\begin_layout Standard
+Oliver hat einen Cameo-Auftritt als Hotelbesucher im Film 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei ??? -- Die Geisterinsel
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Wawrczeck, Jens
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Wawrczeck, Jens
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Sprecher!Jens Wawrczeck
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Spricht Peter Shaw, den zweiten Detektiv.
+\end_layout
+
+\begin_layout Standard
+(* 12.
+ Juli 1963 in Nyköbing, Dänemark)
+\end_layout
+
+\begin_layout Standard
+Schauspieler, Synchronsprecher, Hörbuchinterpret.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes ald
+\end_inset
+
+Worte, nur Worte
+\begin_inset Quotes ard
+\end_inset
+
+-Single mit Andreas Fröhlich: Auskopplung aus dem Seltsamen Wecker.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes ald
+\end_inset
+
+Drei Erzählungen
+\begin_inset Quotes ard
+\end_inset
+
+, 
+\begin_inset Quotes ald
+\end_inset
+
+Drei Geschichten
+\begin_inset Quotes ard
+\end_inset
+
+ und 
+\begin_inset Quotes ald
+\end_inset
+
+Drei Märchen
+\begin_inset Quotes ard
+\end_inset
+
+ mit Rohrbeck und Fröhlich.
+\end_layout
+
+\begin_layout Standard
+Diverse Hörbuchpreise.
+\end_layout
+
+\begin_layout Part
+Film und Fernsehen
+\end_layout
+
+\begin_layout Chapter
+Filme
+\end_layout
+
+\begin_layout Standard
+Bisher gibt es zwei Filme: Das Geheimnis der Geisterinsel und Das verfluchte
+ Schloss.
+\end_layout
+
+\begin_layout Section
+Das verfluchte Schloss
+\end_layout
+
+\begin_layout Standard
+Der englische Titel 
+\begin_inset Quotes ald
+\end_inset
+
+The Three Investigators and the Secret of Terror Castle
+\begin_inset Quotes ard
+\end_inset
+
+ entspricht dem englischen Titel der Geschichte, auf dem der Film basiert:
+ 
+\emph on
+Das Gespensterschloss.
+\end_layout
+
+\begin_layout Subsection
+Eckdaten
+\end_layout
+
+\begin_layout Subsection
+Inhalt
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset index_print
+LatexCommand printindex
+type "idx"
 
 \end_inset
 
@@ -1738,7 +5117,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "Referenzen"
+bibfiles "./Referenzen"
 options "bibtotoc,plain"
 
 \end_inset
