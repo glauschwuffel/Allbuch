@@ -1,0 +1,1771 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrbook
+\begin_preamble
+\usepackage[small,bf]{caption}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage[natbib=true,backend=biber]{biblatex}
+\bibliography{/Users/gregor/Documents/Texte/Allbuch/Referenzen}
+
+% Einstellungen, um überfüllte HKästen ze vermeiden. So l2tabu entnommen.
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
+
+  \usepackage[scaled=1.6]{dictsym}
+  \usepackage[svgnames]{xcolor}
+
+  \definecolor{Darkblue}{rgb}{0,0,0.6}
+
+  % Kapitelnummern bitte in Euler setzen
+  \newfont{\chapterNumber}{eurb10 scaled 7000}
+
+  \newcommand{\liesnach}[1]{\marginline{
+  \scriptsize\raisebox{-.35em}{\dsliterary{}}
+  \textsf{#1}}}
+
+  \newcommand{\inkapitel}[1]{\\\quad\,Kap.\,#1}
+  \renewcommand{\sfdefault}{\rmdefault}
+  
+  \RequirePackage{textcase} % for \MakeTextUppercase
+  \RequirePackage{ifthen}
+
+  % Überschriften in Großbuchstaben und leicht gesperrt setzen.
+  % textls bringt das Paket microtype mit  
+  \DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{#1}}%
+  \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\scshape\MakeTextLowercase{#1}}%
+
+% Überschriften bitte in Kapitälchen setzen
+% Das sieht aber nicht ganz so lecker aus...
+%  \DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\textsc{#1}}}%
+%  \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\textsc{#1}}}%
+
+% ********************************************************************
+% layout of the chapter-, section-, subsection-, subsubsection-,
+% paragraph and description-headings
+% ********************************************************************             
+\RequirePackage{titlesec}
+% parts
+
+    \titleformat{\part}[display]
+        {\normalfont\centering\large}%
+        {\thispagestyle{empty}\partname~\MakeTextUppercase{\thepart}}{1em}%
+        {\color{Darkblue}\spacedallcaps}
+    % chapters
+
+    \titleformat{\chapter}[display]%             
+        {\relax}{\raggedleft{\color{Darkblue}\chapterNumber\thechapter} \\ }{0pt}%
+        {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
+
+    % sections \FloatBarrier
+    \titleformat{\section}
+        {\relax}{\textsc{\MakeTextLowercase{\thesection}}}{1em}{\spacedlowsmallcaps}
+    % subsections
+    \titleformat{\subsection}
+        {\relax}{\textsc{\MakeTextLowercase{\thesubsection}}}{1em}{\normalsize\itshape}
+    % subsubsections
+    \titleformat{\subsubsection}
+        {\relax}{\textsc{\MakeTextLowercase{\thesubsubsection}}}{1em}{\normalsize\itshape}        
+    % paragraphs
+    \titleformat{\paragraph}[runin]
+        {\normalfont\normalsize}{\theparagraph}{0pt}{\spacedlowsmallcaps}    
+    % descriptionlabels
+        \renewcommand{\descriptionlabel}[1]{\hspace*{\labelsep}\spacedlowsmallcaps{#1}}   % spacedlowsmallcaps textit textsc                  
+    % spacing
+    \titlespacing*{\chapter}{0pt}{1\baselineskip}{1.2\baselineskip}
+    \titlespacing*{\section}{0pt}{1.25\baselineskip}{1\baselineskip} 
+    \titlespacing*{\subsection}{0pt}{1.25\baselineskip}{1\baselineskip}
+    \titlespacing*{\paragraph}{0pt}{1\baselineskip}{1\baselineskip}
+\end_preamble
+\use_default_options true
+\begin_modules
+biblatex
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman palatino
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc true
+\font_osf true
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command biber
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "Das Allbuch der drei Fragezeichen"
+\pdf_author "Gregor Goldbach"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4paper
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine natbib_authoryear
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 0
+\index Stichwortverzeichnis
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 15cm
+\paperheight 20cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language danish
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Das Allbuch
+\begin_inset Newline newline
+\end_inset
+
+der drei Fragezeichen
+\end_layout
+
+\begin_layout Title
+Achtun! Nicht mehr ändern!
+\end_layout
+
+\begin_layout Author
+Gregor Goldbach
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Dieses Buch wird unter folgender Creative-Commons-Lizenz veröffentlicht:
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Namensnennung-Keine kommerzielle Nutzung-Keine Bearbeitung 3.0 Deutschland
+\begin_inset Quotes ard
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Grafiken/by-nc-nd.eu.eps
+	width 20text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Die Kurzform: Du darfst das Buch vervielfältigen, verbreiten und öffentlich
+ zugänglich machen.
+ Dies darfst Du jedoch nur unter folgenden Bedingungen:
+\end_layout
+
+\begin_layout Description
+Namensnennung — Du musst den Namen des Autors nennen.
+\end_layout
+
+\begin_layout Description
+Keine
+\begin_inset space ~
+\end_inset
+
+kommerzielle
+\begin_inset space ~
+\end_inset
+
+Nutzung — Dieses Buch darf nicht für kommerzielle Zwecke verwendet werden.
+\end_layout
+
+\begin_layout Description
+Keine
+\begin_inset space ~
+\end_inset
+
+Bearbeitung — Dieses Buch darf nicht bearbeitet, abgewandelt oder in anderer
+ Weise verändert werden.
+ Das bedeutet auch, dass Du es nur 
+\emph on
+als Ganzes
+\emph default
+ weitergeben darfst und nicht abschreiben sollst.
+\end_layout
+
+\begin_layout Standard
+Mehr zur Lizenz findest Du in allgemein verständlicher Sprache unter folgender
+ Adresse:
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://creativecommons.org/licenses/by-nc-nd/3.0/de/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Ich habe diese Lizenz aus folgendem Grunde gewählt: Dieses Buch soll jeder
+ lesen können, der es möchte, und seine elektronische Variante soll ungehindert
+ weitergegeben werden können.
+ Es soll aber niemand damit Geld verdienen dürfen, wenn er oder sie mich
+ nicht vorher gefragt hat.
+ Ich bin kein Anwalt — die Lizenz ist in diesem Geiste anzuwenden.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Dieses Buch ist noch nicht fertig.
+ Was Du hier liest, strotzt vermutlich nur so vor Rechtschreibfehlern, schiefen
+ Vergleichen, ungenauen Angaben und vermutlich sogar sachlich falschen Aussagen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Ich bin bestrebt, dieses Buch zu verbessern und nehme sehr gerne Anregungen
+ entgegen.
+ Falls Dir also etwas an diesem Buche auffällt, so teile es mir mit.
+ Du kannst mich unter der E-Mail-Adresse 
+\emph on
+glauschwuffel (at) nomaden (punkt) org
+\emph default
+ erreichen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Falls Du mit anderen Lesern über dieses Buch im großen, weiten Netz diskutieren
+ möchtest, kannst Du das hier tun:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\size small
+
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://groups.google.de/group/das-allbuch-der-drei-fragezeichen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset VSpace smallskip
+\end_inset
+
+Neuigkeiten zu diesem Buch erfährst Du auch über das Netz:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\size small
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://sites.google.com/site/dasallbuchderdreifragezeichen/
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Und nun wünsche ich Dir viel Spaß beim Lesen!
+\end_layout
+
+\begin_layout Standard
+\align right
+Gregor Goldbach
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+
+\shape italic
+Allen Kassettenkindern und Leseratten, die der Welt besten Nachwuchsdetektiven
+ nacheifern.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+% Tabellen sollen die ganze Seitenbreite einnehmen.
+ Ich definiere hier die Umgebung um,
+\end_layout
+
+\begin_layout Plain Layout
+
+% damit Tabellen in LyX ganz normal verwendet werden können.
+\end_layout
+
+\begin_layout Plain Layout
+
+% Erstmal auskommentiert, damit Tabellen im Fließtext wie gewohnt aussehen.
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+renewenvironment{tabular}[1] %{
+\backslash
+begin{tabular*}{
+\backslash
+columnwidth}{@{
+\backslash
+extracolsep{
+\backslash
+fill}}#1}} {
+\backslash
+end{tabular*}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Vorwort
+\end_layout
+
+\begin_layout Standard
+Bob wäre vielleicht ein wenig neidisch.
+ Recherchen für ein Buch, das nicht geschrieben werden kann.
+ Zwischen den Deckeln dieses Buches findet sich das gesammelte Wissen über
+ 
+\begin_inset Quotes ald
+\end_inset
+
+die drei ???
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Jahrelange nicht enden wollende Recherche.
+\end_layout
+
+\begin_layout Standard
+Die drei Detektive waren neben den fünf Freunden die Helden meiner Kindheit.
+ Ich hatte nicht viele Kassetten (vielleicht vierzig) und irgendwann ungefähr
+ ebenso viele Bücher, die mir meine Eltern von einem Flohmarkt mitgebracht
+ hatten.
+ Die Hörspielfolge 29 ist mir davon in schmerzlicher Erinnerung geblieben
+ -- auf ihr war die 
+\begin_inset Quotes ald
+\end_inset
+
+alte
+\begin_inset Quotes ard
+\end_inset
+
+ Musik 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Verweis
+\end_layout
+
+\end_inset
+
+ enthalten.
+ Schmerzlich ist die Erinnerung deshalb, weil ich die Kassetten irgendwann
+ verliehen und natürlich nie wiedergesehen habe.
+ Vor wenigen Jahren gab ich dann gegen 1 Euro pro Stück auch noch die Bücher
+ aus der Hand.
+ So waren Justus, Peter, Bob und ich auseinander gegangen.
+\end_layout
+
+\begin_layout Standard
+Die Jahre vergingen und plötzlich überschlugen sich die Ergeignisse: Mein
+ Bekanntenkreis erweiterte sich um eine Person, die nicht nur viele Folgen
+ auf CD besaß, sondern mich auch noch an diesem Genuss teilhaben ließ.
+ Ein Arbeitskollege kaufte die neuen Folgen bei iTunes.
+ Die drei ??? führten den Super-Papagei in der Color-Line-Arena in Hamburg
+ auf.
+ Und es gab den ersten Kinofilm.
+\end_layout
+
+\begin_layout Standard
+Seit dem bin ich wieder süchtig.
+ Mein Sohn hört mit mir die Hörspiele und ich war bei der Aufführung des
+ seltsamen Weckers in Hamburg dabei.
+\end_layout
+
+\begin_layout Standard
+Ich würde gerne erfahren, warum ich die 
+\begin_inset Quotes ald
+\end_inset
+
+alt
+\begin_inset Quotes ard
+\end_inset
+
+ Musik nicht mehr hören kann, wie oft Justus angeblich noch eine Mutter
+ haben soll, und ob vielleicht in irgendeiner Geschichte eine schwarze Katze
+ in einer Zypresse im Nebel sitzt und den Weg zur Zentrale weist.
+\end_layout
+
+\begin_layout Standard
+Leider kann ich das nirgends nachschlagen.
+ 
+\emph on
+rocky-beach.com
+\emph default
+ ist ein Füllhorn der Erkenntnis, aber eben doch kein Buch.
+ Es gibt 
+\emph on
+Die Enzyklopädie des Wüstenplaneten
+\emph default
+, die einem Nachschlagewerk gleich Begriffe alfabetisch aufführt.
+ Das ist schon nicht schlecht.
+ Etwas ähnliches gibt es für 
+\emph on
+Star Trek: The Next Generation
+\emph default
+: Hier wird jede Fernsehfolge beschrieben.
+ Ja, alle sieben Staffeln, alle 178 Folgen (oder waren es 179? Ich muss
+ nochmal nachschlagen\SpecialChar \ldots{}
+).
+\end_layout
+
+\begin_layout Standard
+Nur leider gibt es das eben nicht für unsere Detektive.
+ Was -- wenn wir mal ehrlich sind -- eigentlich eine Schande ist.
+ Ein Grund dafür, dass es dieses Buch nicht gibt, könnte sein, dass man
+ dieses Buch nicht schreiben 
+\emph on
+kann
+\emph default
+.
+ Es gibt immer neue Bücher und Hörspiele, weil die Reihe laufend fortgesetzt
+ wird.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Aber das heißt andererseits auch, dass wir -- diejenigen, die ungefähr in
+ meinem Alter sind und früher die Kassetten gekauft haben -- weiter in Kindheits
+erinnerungen schwelgen und mit unseren Kindern zusammen noch einmal jung
+ sein können, und dass die jungen neuen Hörer die Möglichkeit haben, unseren
+ jetzigen Erfahrungsschatz mit der Serie aufbauen zu können.
+\end_layout
+
+\end_inset
+
+ Hoffentlich für viele Jahre, und vielleicht kann dieses Buch ja doch geschriebe
+n werden.
+ Einen Versuch ist dieser spezial gelagerte Sonderfall allemal wert.
+\end_layout
+
+\begin_layout Chapter*
+Aufbau des Buches
+\end_layout
+
+\begin_layout Standard
+Dieses Buch ist in fünf Teile gegliedert.
+ Teil I beschreibt das Universum, in dem sich die drei Detektive bewegen.
+ Es mag ein kleines Universum sein, dessen Zentrum der fiktive Ort Rocky
+ Beach ist, aber es ist eines.
+ In den Geschichten tauchen viele Personen auf, von denen einige ebenfalls
+ fiktiv sind -- sind dies dann fiktiv-fiktive Personen, wie zum Beispiel
+ Java-Jim? Und wie nennt man die Rolle von Alfred Hitchock, der sowohl innerhalb
+, als auch außerhalb der Geschichten auftaucht?
+\end_layout
+
+\begin_layout Standard
+Im zweiten Teil sehen wir uns die Bücher an, die ursprünglich Übersetzungen
+ waren, mittlerweile jedoch Originale sind.
+ Welche gibt es, wer hat sie geschrieben, wer hatte die Idee? Unterscheiden
+ sich die Auflagen und wenn ja, worin?
+\end_layout
+
+\begin_layout Standard
+Die Hörspiele basieren auf den Büchern, sie werden im darauf folgenden Teil
+ beleuchtet.
+ Worin unterscheiden sich die Folgen von den gedruckten Vorlagen? Musste
+ der Super-Papagei unbedingt neu aufgenommen werden? Welchen Zwist gab es
+ um die 
+\begin_inset Quotes ald
+\end_inset
+
+alte
+\begin_inset Quotes ard
+\end_inset
+
+ Musik -- und welche Kabbelei fand da um die Lizenzen statt, die zur Verzögerung
+ der Folgen 123 bis 125 führte?
+\end_layout
+
+\begin_layout Standard
+Der vierte Teil nimmt die Filme unter die Lupe.
+ Es gibt derer erst zwei, aber das wird sich bestimmt noch ändern.
+ Welche filmischen Anpassungen wurden hier vorgenommen? Wie kam es dazu,
+ dass Oliver Rohrbeck die Synchronregie geführt hat? Und wann kommt die
+ Fernsehserie?
+\end_layout
+
+\begin_layout Standard
+Der letzte Teil gibt einen kleinen Einblick in die Kultur.
+ Wenn eine Hörspielserie, die auf Übersetzungen einer amerikanischen Buchreihe
+ basiert, die mittlerweile nur noch in Deutschland fortgesetzt wird, ihr
+ 30-jähriges Jubiläum feiert, und wenn neue Folgen auf 
+\emph on
+release parties
+\emph default
+ gefeiert werden, dann muss man da wohl mal genauer hinschauen.
+\end_layout
+
+\begin_layout Standard
+Greifen wir nun also zum Mikroskop oder zur Lupe oder doch eher zum Fernrohr,
+ und untersuchen das erste Beweisstück: Das Universum.
+\end_layout
+
+\begin_layout Part
+Das Universum
+\end_layout
+
+\begin_layout Standard
+Eine frische Brise Seeluft weht uns um die Nase.
+ Wir folgen einem Fahrzeug, das einen Peilsender mit sich trägt, auf dem
+ Fahrrad und strampeln uns gerade die Lungen aus dem Leib.
+ Das Piepen wird schwächer.
+ Der Wagen kommt wohl gut durch den Verkehr.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Telefonlawine hat uns auf diese Spur gebracht.
+ Vorgestern abend nach dem Abendbrot haben wir sie ins Rollen gebracht.
+ Der Rückruf kam von einem Jungen mit mexikanischen Akzent, der indianische
+ Vorfahren hatte und dessen Onkel ein alter Zigeuner war, der in einem Zirkus\SpecialChar \ldots{}
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Charakterverzeichnis.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+In diesem Kapitel werden alle Personen aufgeführt, die in den Büchern, Hörspiele
+n und Filmen erwähnt werden.
+ Soweit möglich wird versucht, folgende Fragen für jede Person zu beantworten:
+\end_layout
+
+\begin_layout Itemize
+Wie lautet ihr vollständiger Name? Gibt es Spitznamen?
+\end_layout
+
+\begin_layout Itemize
+Welche familiären Verhältnisse sind bekannt?
+\end_layout
+
+\begin_layout Itemize
+Was ist über Freunde oder Feinde bekannt?
+\end_layout
+
+\begin_layout Itemize
+Wann wird sie zuerst erwähnt?
+\end_layout
+
+\begin_layout Itemize
+Welche besonderen Ereignisse gibt es?
+\end_layout
+
+\begin_layout Section
+Justus Jonas
+\end_layout
+
+\begin_layout Description
+Name Justus Jonas, erster Detektiv der drei ???.
+\end_layout
+
+\begin_layout Description
+Spitzname häufig Just.
+ Gelegentlich wird er von seinen Freunden 
+\begin_inset Quotes gld
+\end_inset
+
+Pummelchen
+\begin_inset Quotes grd
+\end_inset
+
+ genannt.
+ Wer ihn ärgern will, nennt ihn 
+\begin_inset Quotes gld
+\end_inset
+
+Dickerchen
+\begin_inset Quotes grd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Eigenschaften redet geschwollen, ist leicht korpulent und deswegen nicht
+ besonders sportlich.
+ Intelligent und der wohlwollende Diktator der drei ???, der Ergebnisse
+ gemeinsamer Abstimmungen regelmäßig übergeht.
+\end_layout
+
+\begin_layout Description
+erste
+\begin_inset space ~
+\end_inset
+
+Erwähnung Da er der erste Detektiv ist, tritt er mit Beginn der Serie auf.
+\end_layout
+
+\begin_layout Description
+familiäre
+\begin_inset space ~
+\end_inset
+
+Verhältnisse Seine Eltern sind verstorben
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Nachweis
+\end_layout
+
+\end_inset
+
+, er ist der Neffe von Titus und Mathilda Jonas, beiden denen er lebt.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Fälle.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Orte.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Gegenstände.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Tiere.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Phänomene.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Rätsel.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Technik.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 1 - Das Universum/Gruppen.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Themen
+\end_layout
+
+\begin_layout Standard
+Hier stehen Themen, die angesprochen werden.
+ Sowas wie 
+\begin_inset Quotes gld
+\end_inset
+
+Umweltschutz
+\begin_inset Quotes grd
+\end_inset
+
+ im Riff der Haie, 
+\begin_inset Quotes gld
+\end_inset
+
+Goldrausch
+\begin_inset Quotes grd
+\end_inset
+
+ im Pantomsee oder ähnlich.
+ Mal sehen, ob dieses Kapitel etwas taugt.
+\end_layout
+
+\begin_layout Standard
+Ganz große Themen sind natürlich 
+\begin_inset Quotes gld
+\end_inset
+
+Bankraub
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+Fälschen
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+Entführung
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+Kunstraub
+\begin_inset Quotes grd
+\end_inset
+
+ :-)
+\end_layout
+
+\begin_layout Part
+Die Bücher
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 2 - Die Bücher/Buchreihe.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 2 - Die Bücher/Personenverzeichnis.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 2 - Die Bücher/Verlage.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Chapter
+Die Auflagen
+\end_layout
+
+\begin_layout Itemize
+Hier gehört nicht hin, wie viele Auflagen jedes Buch hatte.
+ Das steht wohl besser bei jedem Buch.
+\end_layout
+
+\begin_layout Itemize
+hier gehört hin, welche grundsätzlichen Sachen es über die Auflagen zu sagen
+ gibt.
+ Wenn es das gibt.
+\end_layout
+
+\begin_layout Chapter
+Die Cover
+\end_layout
+
+\begin_layout Plain Layout
+Wer malt die? Wer hatte die Idee? Gibt es Unterschiede zwischen den Auflagen?
+\end_layout
+
+\begin_layout Chapter
+Der Ursprung
+\end_layout
+
+\begin_layout Chapter
+Andere Länder
+\end_layout
+
+\begin_layout Plain Layout
+Die Buchreihe erschien in vielen Ländern.
+ In Tabelle X ist der Name der Reihe in den unterschiedlichen Sprachen aufgeführ
+t.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+small
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="20" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0" special="l">
+<column alignment="center" valignment="top" width="0" special="l">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sprache
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name der Reihe
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vereinigte Staaten von Amerika
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+The Three Investigators
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Deutschland
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Die drei ???
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Spanien
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Los Tres Investigadores
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Catalan ?
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Els Tres Investigadors
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Portugiesisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Os Três Investigadores
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Französisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Les trois jeunes détectives
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Italienisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I Tre Investigatori
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Polnisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Przydody Trzech Detektywów
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+(slovak)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Traja pátraci
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kroatisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tri detektiva
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Dänisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+De Tre Detektiver
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Schwedisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tre Deckare
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Finnisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Kolme etsivää
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Norwegisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Njósna???renninggunni
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Niederländisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+De 3 Speurders / Detectives
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Belgien
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+De 3 Detectives
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Griechisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+OI TPEI$
+\backslash
+Sigma$NTETEKTIB
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Indonesisch(? :-))
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Trio Detektiv
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Malayisch
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tiga Penyiasat
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Name der Reihe in verschiedenen Sprachen.
+ Quelle: 
+\backslash
+url{www.rocky-beach.com/cgi-bin/print.pl}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Die Hörspiele
+\end_layout
+
+\begin_layout Chapter
+Die Hörspiele
+\end_layout
+
+\begin_layout Chapter
+Die Personen
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 3 - Die Hörspiele/Personenverzeichnis.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Die Sprecher
+\end_layout
+
+\begin_layout Plain Layout
+In diesem Kapitel werden in alphabetischer Folge die Sprecher aufgeführt.
+ Wenn ein Name ein Pseudonym ist, wird dies vermerkt.
+ Sofern bekannt, wird der Name der Person, die hinter dem Pseudonym steckt,
+ aufgeführt.
+\end_layout
+
+\begin_layout Plain Layout
+Damit ein Sprecher leichter aufgefunden werden kann, sind in folgender Tabelle
+ jeder Rolle die Sprecher zugeordnet.
+ Es werden ebenfalls die Folgen aufgeführt, in denen die Rollen von dieser
+ Person gesprochen werden.
+\end_layout
+
+\begin_layout Chapter
+Die Musik
+\end_layout
+
+\begin_layout Section
+Die 
+\begin_inset Quotes gld
+\end_inset
+
+alte
+\begin_inset Quotes grd
+\end_inset
+
+ Musik
+\end_layout
+
+\begin_layout Section
+Die neue Musik
+\end_layout
+
+\begin_layout Section
+...
+ und noch neuere Musik
+\end_layout
+
+\begin_layout Chapter
+Die Produktion
+\end_layout
+
+\begin_layout Plain Layout
+Wer hatte die Idee? Wie wurden die Sprecher gefunden? Warum sind es gerade
+ diese Sprecher geworden? Warum Europa? War es schwierig, die Lizenzen zu
+ bekommen?
+\end_layout
+
+\begin_layout Section
+Europa
+\end_layout
+
+\begin_layout Section
+Heikedine Körting
+\end_layout
+
+\begin_layout Chapter
+Die Coverbilder
+\end_layout
+
+\begin_layout Plain Layout
+Das waren ja die Bilder von Aiga Rasch.
+ Sie entsprechen den Bildern der Bücher und wurden gelegentlich ausgetauscht
+ (Welche Folgen?).
+\end_layout
+
+\begin_layout Chapter
+Die Unterschiede
+\end_layout
+
+\begin_layout Chapter
+Die Live-Auftritte
+\end_layout
+
+\begin_layout Section
+Die drei ??? und der Super-Papagei
+\end_layout
+
+\begin_layout Section
+Die drei ??? und der seltsame Wecker
+\end_layout
+
+\begin_layout Part
+Die Filme
+\end_layout
+
+\begin_layout Chapter
+Die Filme
+\end_layout
+
+\begin_layout Chapter
+Die Unterschiede
+\end_layout
+
+\begin_layout Part
+Die Kultur
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "Teil 5 - Die Kultur/Die Kultur.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+\start_of_appendix
+Ideen
+\end_layout
+
+\begin_layout Standard
+In diesem Kapitel sammele ich Ideen zu Inhalten, die in das Buch aufgenommen
+ werden könnten.
+ Alles, was hier steht, hat seine Form noch nicht so gefunden, dass es irgendwoa
+nders aufgenommen werden konnte.
+ Das heißt im schlechtesten Fall natürlich, dass es irgendwann rausfliegen
+ wird, weil die Ideen nicht gut ist.
+\end_layout
+
+\begin_layout Section
+Technik, die sich überlebt hat
+\end_layout
+
+\begin_layout Standard
+Hier führe ich die Techniken auf, die erwähnt werden, aber mittlerweile
+ aus der Mode gekommen sind.
+ Kandidaten dafür sind:
+\end_layout
+
+\begin_layout Itemize
+Das Autotelefon.
+ Ein Lacher während der Aufführung des Super-Papageis.
+ In Zeiten, in denen Mobiltelefone normal sind, ist eine Autotelefon nichts
+ Besonderes mehr.
+\end_layout
+
+\begin_layout Itemize
+Die Telefonlawine.
+ Immer noch möglich, aber nicht einmal die E-Mail-Lawine ist so ausgefallen
+ wie die Telefonlawine damals Ende des 60er Jahre des vergangenen Jahrhunderts.
+ Ein 
+\emph on
+smart mob
+\emph default
+ wäre vielleicht annähernd ausgefallen.
+\end_layout
+
+\begin_layout Section
+Was ich von den drei Detektiven gelernt habe
+\end_layout
+
+\begin_layout Standard
+Das mag viel sein oder auch nicht.
+ Vermutlich ist das ein Abschnitt im Teil über die Kultur.
+ Was habe 
+\emph on
+ich
+\emph default
+ denn gelernt?
+\end_layout
+
+\begin_layout Section
+Was man von den drei Detektiven lernen konnte
+\end_layout
+
+\begin_layout Standard
+Im Gegensatz zu der vorigen Idee ist dies eine Zusammenfassung der Einstellungen
+ und Geisterhaltungen und Ähnlichem, die aus den Büchern entgegenströmt.
+ Quasi der Zeitgeist in Verpackung.
+ Das Ganze sollte mit einer guten Prise Humor genommen werden.
+ Eine erste Auswahl:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes ald
+\end_inset
+
+Einsteigen
+\begin_inset Quotes ard
+\end_inset
+
+ ist erlaubt, wenn man der Gute ist.
+ Das zeigen und die Detektive immer wieder.
+\end_layout
+
+\begin_layout Itemize
+Vegetarisches Essen ist merkwürdig.
+ Das müsste aus dem lachenden Schatten stammen.
+\end_layout
+
+\begin_layout Itemize
+Man lügt nicht.
+ Korollar: Wer lügt, führt etwas Böses im Schilde oder hat zumindest Dreck
+ am Stecken.
+ (Wieder der lachende Schatten: Er ist gar kein Vegetarier.)
+\end_layout
+
+\begin_layout Itemize
+Niederlagen sind nur Rückschläge.
+ Wenn sich die drei mal irren (und das kommt andauernd vor), machen sie
+ weiter und kommen schließlich zum Ziel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Teil 2 - Die Bücher/Anhang-Buecher.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Referenzen"
+options "bibtotoc,plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+printbibliography
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
