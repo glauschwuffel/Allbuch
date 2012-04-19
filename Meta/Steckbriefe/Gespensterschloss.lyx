@@ -1,0 +1,1277 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass scrartcl
+\begin_preamble
+\usepackage{microtype}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman palatino
+\font_sans helvet
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc true
+\font_osf true
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language danish
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\bullet 0 0 0 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Steckbrief eines Falles
+\end_layout
+
+\begin_layout Title
+Gespensterschloss
+\end_layout
+
+\begin_layout Section
+Fall
+\end_layout
+
+\begin_layout Subsection
+Zusammenfassung
+\end_layout
+
+\begin_layout Standard
+(Kategorie, jeweils drei Sätze: Fall, Ermittlung/Verlauf, Auflösung)
+\end_layout
+
+\begin_layout Standard
+Kategorie: Mysterium
+\end_layout
+
+\begin_layout Standard
+Zusammenfassung: Das Detektivbüro 
+\begin_inset Quotes ald
+\end_inset
+
+Die drei Detektive
+\begin_inset Quotes ard
+\end_inset
+
+ hat Justus gerade neu gegründet und nun sucht er einen möglichst spektakulären
+ Fall, um auffällige Werbung für das Unternehmen zu machen.
+ Was liegt da näher, als gleich in die Vollen zu gehen und Alfred Hitchcock
+ als Auftraggeber zu wählen, da dieser gerade ein Spukschloss sucht? Justus
+ bringt Hitchcock, der zunächst ablehnt, geschickt dazu, ihnen den Auftrag
+ zu geben.
+\end_layout
+
+\begin_layout Standard
+Die Recherchen bringen die drei Detektive zum Haus Terrill, das leer steht
+ und in dem es vermeintlich spukt.
+ Bei ihren Ermittlungen gibt es mehrere merkwürdige Ereignisse.
+ Justus besteht darauf, die mysteriösen Vorkommnisse aufzuklären, obwohl
+ Peter natürlich lieber darauf verzichten würde.
+\end_layout
+
+\begin_layout Standard
+Justus kommt durch seine Neugier der Lösung so nahe, dass er und Peter gefangen
+ genommen werden.
+ Bob und Morton können sie jedoch befreien und der erste Detektiv schlussfolgert
+, dass Terrill noch lebt und für die Spukerscheinungen verantwortlich ist.
+ Justus überführt Terrill.
+ Da Terrill sein Haus behalten möchte, schlägt Justus ihm vor, in dem Haus
+ Vorführungen seiner alten Filme durchzuführen.
+\end_layout
+
+\begin_layout Subsection
+Charaktere
+\end_layout
+
+\begin_layout Standard
+(Haupt-, Nebencharaktere)
+\end_layout
+
+\begin_layout Standard
+Alle sind sie da: DDF,Titus,Mathilda,Patrick und Kenneth, Morton, Skinny,
+ Alfred Hitchcock.
+ Das sind die Regulären, die hier eingeführt werden.
+\end_layout
+
+\begin_layout Standard
+Hauptcharaktere: Stephan Terrill/Jonathan Rex und Charles Grant (auch als
+ Rosa und Linda)
+\end_layout
+
+\begin_layout Standard
+Nebencharaktere: Bobs Mutter, Henrietta Larson.
+\end_layout
+
+\begin_layout Subsection
+Schauplätze
+\end_layout
+
+\begin_layout Standard
+(Wo spielt die Geschichte?)
+\end_layout
+
+\begin_layout Standard
+Schrottplatz, Haus Terrill, Büro von Alfred Hitchcock.
+\end_layout
+
+\begin_layout Subsection
+Zeit
+\end_layout
+
+\begin_layout Standard
+(Wie lange dauert der Fall? Und wann spielt das Ganze? Können wir wenigstens
+ die Jahreszeit angeben? Sind Ferien?)
+\end_layout
+
+\begin_layout Subsection
+Gegenstände
+\end_layout
+
+\begin_layout Standard
+(Welche besonderen Gegenstände werden erwähnt und warum sind sie besonders?)
+\end_layout
+
+\begin_layout Itemize
+Kreide wird eingeführt
+\end_layout
+
+\begin_layout Itemize
+Visitenkarte wird eingeführt
+\end_layout
+
+\begin_layout Itemize
+Rolls Royce wird eingeführt
+\end_layout
+
+\begin_layout Itemize
+Tonbandgerät und Kamera.
+ Die beiden haben quasi historischen Wert.
+ Die Geschichte ist nunmal aus einer anderen Zeit.
+\end_layout
+
+\begin_layout Subsection
+Sonstiges
+\end_layout
+
+\begin_layout Standard
+(Ähnliche Fälle? )
+\end_layout
+
+\begin_layout Standard
+Da dies der erste Fall ist, wird hier eine Menge eingeführt: Neben den regelmäßi
+gen Charakteren auch die Visitenkarte, die Kreide, Morton und der Rolls
+ Royce, Hitchcock.
+ Schrottplatz, Zentrale, Grünes Tor I, Tunnel II, Gang III.
+\end_layout
+
+\begin_layout Standard
+In neuen Auflagen wurde Hitchcock wegen der ausgelaufenen Lizenz durch Albert
+ Hitfield ersetzt.
+\end_layout
+
+\begin_layout Standard
+Wer diesen Fall mag, möchte vielleicht auch den 
+\emph on
+Nebelberg 
+\emph default
+(Gespenster), 
+\emph on
+Haus des Schreckens 
+\emph default
+(leeres Haus) lesen.
+ Und natürlich die weiteren Bücher von Arthur, weil dieser schon auf eine
+ Abfolge geachtet hat und die Fälle miteinander verknüpft.
+\end_layout
+
+\begin_layout Standard
+Unbedingt auch das Hörspiel genießen.
+ Viele Gemeindemitglieder halten diese Folge für atmosphärisch gelungen
+ und reden heute noch davon, dass sie sich als Kinder wirklich gegruselt
+ haben.
+\end_layout
+
+\begin_layout Standard
+Just ignoriert Abstimmungen, die gegen ihn ausfallen.
+\end_layout
+
+\begin_layout Section
+Buch
+\end_layout
+
+\begin_layout Subsection
+Verlage und Auflagen
+\end_layout
+
+\begin_layout Standard
+(Bei welchen Verlagen ist das Buch erschienen? Wann zuerst? Wann zuletzt?
+ Cover?)
+\end_layout
+
+\begin_layout Standard
+Neuauflage von Kosmos zum zweiten Kinofilm.
+ Ansonsten auch in der Klassiker-Box erhältlich.
+\end_layout
+
+\begin_layout Standard
+Und als Sonder-
+\begin_inset Quotes ard
+\end_inset
+
+Zeit
+\begin_inset Quotes ard
+\end_inset
+
+-Ausgabe im Doppelband mit der Mumie zusammen (Die ZEIT Krimis für junge
+ Leser Bd.6, ISBN-13: 9783440131060)
+\end_layout
+
+\begin_layout Standard
+Verlage: Kosmos, dtv junior,
+\end_layout
+
+\begin_layout Subsection
+Inhalt
+\end_layout
+
+\begin_layout Subsubsection
+Vorwort
+\end_layout
+
+\begin_layout Standard
+Vorwort über zwei Seiten.
+ Hitchcock führt die drei Detektive ein.
+ Über Justus lässt er sich besonders aus: Er nennt ihn sogar 
+\begin_inset Quotes ald
+\end_inset
+
+Fettwanst
+\begin_inset Quotes ard
+\end_inset
+
+ und erwähnt seinen Spitznamen 
+\begin_inset Quotes ald
+\end_inset
+
+Dickerchen
+\begin_inset Quotes ard
+\end_inset
+
+, der in den Hörspielen zu 
+\begin_inset Quotes ald
+\end_inset
+
+Pummelchen
+\begin_inset Quotes ard
+\end_inset
+
+ wird.
+ Zudem führt er hier die 
+\begin_inset Quotes ald
+\end_inset
+
+Fingerzeige
+\begin_inset Quotes ard
+\end_inset
+
+ ein:
+\end_layout
+
+\begin_layout Quotation
+Zu meinem Privatvergnügen (das habe ich mir vom Verfasser des Berichtes
+ ausgebeten) werde ich Euch beim Lesen durch versteckte Fingerzeige Gelegenheit
+ geben, die drei Detektive in ihrem Vorgehen zu überprüfen oder -- warum
+ nicht? -- zu überrunden.
+ Doch Ihr werdet von mir höchstens ein Nasenlänge Vorsprung bekommen (das
+ haben sich der Verfasser und die drei Detektive ihrerseits ausgeben) --
+ der Rest ist Eure Sache!
+\end_layout
+
+\begin_layout Subsubsection
+Die drei Detektive
+\end_layout
+
+\begin_layout Paragraph
+Szene 1.
+\end_layout
+
+\begin_layout Description
+Ort Bei Bob zu Hause.
+\end_layout
+
+\begin_layout Description
+Zeit Unbekannt.
+ 
+\end_layout
+
+\begin_layout Description
+Inhalt Er kommt aus der Bücherei, seine Mutter backt Kuchen.
+ Sie sagt ihm, dass Justus angerufen und eine unverständlichen Nachricht
+ hinterlassen hat: 
+\begin_inset Quotes ald
+\end_inset
+
+Grünes Tor, Römisch Eins.
+ Die Maschine läuft.
+\begin_inset Quotes ard
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Description
+Fakten Rolls-Royce und Preisausschreiben; Bobs Gips und die Ursache; Lage
+ von Rocky Beach; der Schrottplatz liegt nicht in der Innenstadt.
+\end_layout
+
+\begin_layout Paragraph
+Szene 2.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz.
+\end_layout
+
+\begin_layout Description
+Zeit Unbekannt.
+\end_layout
+
+\begin_layout Description
+Inhalt B betritt die Freiluftwerkstatt durch Grünes Tor I.
+ J sitzt knetend im Schaukelstuhl, P steht an der laufenden Druckerpresse
+ und zeigt B ein Exemplar.
+ J verteilt Rollen der drei Detektive.
+ B fragt nach dem Fragezeichen, J in Hochform inklusive Werbeauftritt, anschließ
+end erster Fall bei Hitchcocks als Werbemaßnahme.
+ Henrietta Larsson.
+ B muss am nächsten Tag den ganzen Tag in die Bücherei, daher J und P allein
+ zu Hitchcock um 10 Uhr morgens mit RR:
+\end_layout
+
+\begin_layout Description
+Fakten Aussehen des Schrottplatzes mit Zaun, Dach und Tor; Freiluftwerkstatt;
+ Druckerpresse; Visitenkarte; die Jungs wollten 
+\begin_inset Quotes ald
+\end_inset
+
+schon immer
+\begin_inset Quotes ard
+\end_inset
+
+ ein Detektivbüro eröffnen; Kneten der Unterlippe; Peters Aussehen.
+ Peters Vater ist Trick-Experte bei einer Filmgesellschaft in Hollywood.
+ Henrietta Larson war ein paar Klassen über DDF und war 
+\begin_inset Quotes ald
+\end_inset
+
+der Feldwebel
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Besuch mit Hintergedanken
+\end_layout
+
+\begin_layout Paragraph
+Szene 3.
+\end_layout
+
+\begin_layout Description
+Ort Vor dem Eingangstor des Schrottplatzes.
+\end_layout
+
+\begin_layout Description
+Zeit Kurz vor zehn Uhr morgens.
+\end_layout
+
+\begin_layout Description
+Inhalt Morton holt J und P mit dem Rolls-Royce ab und fährt sie zum Universum-St
+udio.
+ 
+\end_layout
+
+\begin_layout Description
+Fakten Morton und der Rolls-Royce werden eingeführt.
+ Der RR hat Autotelefon und Eisfach :-)
+\end_layout
+
+\begin_layout Paragraph
+Szene 4.
+\end_layout
+
+\begin_layout Description
+Ort Zufahrt zum Universum-Studio.
+\end_layout
+
+\begin_layout Description
+Zeit Vormittags.
+\end_layout
+
+\begin_layout Description
+Inhalt Beim Wachtposten schauspielert J so gut und redet so geschickt, dass
+ dieser ihn für den Neffen Hitchcocks hält und den RR passieren lässt.
+\end_layout
+
+\begin_layout Description
+Fakten J kann so gut schauspielern, dass sogar P verblüfft ist.
+\end_layout
+
+\begin_layout Paragraph
+Szene 5.
+\end_layout
+
+\begin_layout Description
+Ort Universum-Studio, die Villa Hitchcocks
+\end_layout
+
+\begin_layout Description
+Zeit Irgendwann nach 10 Uhr morgens.
+\end_layout
+
+\begin_layout Description
+Inhalt Henrietta Larson will J und P abweisen, doch J gibt wie schon beim
+ Wachtposten den jungen Hitchcock.
+ Henrietta wird wütend und will, dass H sich das selbst ansieht.
+ H erscheint, hat eigentlich keine Zeit, doch Henrietta überredet ihn, sich
+ 
+\begin_inset Quotes ald
+\end_inset
+
+es
+\begin_inset Quotes ard
+\end_inset
+
+ anzusehen.
+\end_layout
+
+\begin_layout Description
+Fakten Henrietta mag J gar nicht.
+\end_layout
+
+\begin_layout Paragraph
+Szene 6.
+\end_layout
+
+\begin_layout Description
+Ort Hitchcocks Büro
+\end_layout
+
+\begin_layout Description
+Zeit Zur gleichen Zeit.
+\end_layout
+
+\begin_layout Description
+Inhalt J gibt H die Karte, der auch prompt die Frage nach den Fragezeichen
+ stellt.
+ J bittet um den Fall und um die Herausgabe des schriftlichen Berichts als
+ Buch.
+ H lehnt ab und schickt die Jungs raus, hakt aber nach, was er sich ansehen
+ sollte.
+ J gibt den jungen H und H ist außer sich.
+ Durch geschickte Formulierungen ringt J H den Auftrag ab und auch das Vorwort.
+\end_layout
+
+\begin_layout Description
+Fakten Erster 
+\begin_inset Quotes ald
+\end_inset
+
+Fingerzeig
+\begin_inset Quotes ard
+\end_inset
+
+ am Ende des Kapitels.
+\end_layout
+
+\begin_layout Subsubsection
+Man spricht vom Gespensterschloss
+\end_layout
+
+\begin_layout Paragraph
+Szene 7.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz.
+\end_layout
+
+\begin_layout Description
+Zeit Später Nachmittag.
+\end_layout
+
+\begin_layout Description
+Inhalt Bob betritt durch Grünes Tor I die Freiluftwerkstatt und krabbelt
+ durch Tunnel II in die Zentrale.
+\end_layout
+
+\begin_layout Description
+Fakten Einführung Tunnel II und Zentrale.
+ Die Zentrale wurde vor einem Jahr von Titus erworben.
+ Patrick und Kenneth werden erwähnt.
+\end_layout
+
+\begin_layout Paragraph
+Szene 8.
+\end_layout
+
+\begin_layout Description
+Ort Zentrale.
+\end_layout
+
+\begin_layout Description
+Zeit wie vor.
+\end_layout
+
+\begin_layout Description
+Inhalt Bob berichtet von den Recherchen in der Bücherei und dass Skinny
+ die Notiz auf der Visitenkarte gesehen hat.
+ Sodann Bericht der Ergebnisse: Haus Terrill.
+ J legt fest, dass sie das Haus mit Kamera und Tonbandgerät besuchen.
+\end_layout
+
+\begin_layout Description
+Fakten Einführung Skinny.
+ Eigenschaften von B, P und J werden hier deutlich gezeichnet: B Hintergrundarbe
+it, P Angst, J fasziniert und logisch.
+\end_layout
+
+\begin_layout Subsubsection
+Besuch im Gespensterschloss
+\end_layout
+
+\begin_layout Paragraph
+Szene 9.
+\end_layout
+
+\begin_layout Description
+Ort Vor Schrottplatz.
+\end_layout
+
+\begin_layout Description
+Zeit Nach Einbruch der Dunkelheit.
+\end_layout
+
+\begin_layout Description
+Inhalt Morton holt JPB ab und fährt sie zum Schwarzen Canyon.
+ J mit Blitzlichtkamera, P mit Tonbandgerät, B mit Block.
+ Wegen Geröll auf der Straße müssen J und P den Rest zu Fuß gehen, B bleibt
+ mit M im Auto und wartet.
+\end_layout
+
+\begin_layout Description
+Fakten Das Tonbandgerät hat Peter gegen seine Briefmarkensammlung eingetauscht.
+\end_layout
+
+\begin_layout Paragraph
+Szene 10.
+\end_layout
+
+\begin_layout Description
+Ort In der Schlucht, vor Schloss Terrill.
+\end_layout
+
+\begin_layout Description
+Zeit gleich
+\end_layout
+
+\begin_layout Description
+Inhalt P will zurück, J will eine Stunde im Schloss verbringen, da ja nur
+ nachts irgendetwas passiert.
+ Kaninchen.
+ Sie gehen ins Schloss, in der Echohalle 
+\begin_inset Quotes ald
+\end_inset
+
+Raus!
+\begin_inset Quotes ard
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Fakten
+\end_layout
+
+\begin_layout Subsubsection
+Echo aus dem Jenseits
+\end_layout
+
+\begin_layout Paragraph
+Szene 11.
+\end_layout
+
+\begin_layout Description
+Ort In der Echohalle
+\end_layout
+
+\begin_layout Description
+Zeit unverändert
+\end_layout
+
+\begin_layout Description
+Inhalt J und P sind nur ein bisschen aufgeregt.
+ Peter sieht in Gemälde des einäugigen Piraten das Auge, das ihn anstarrt.
+ Es blinzelt.
+ Bei Untersuchung von J ist da nur Leinwand.
+ Dann eiskalter Luftzug und Angst.
+ Nebel.
+ Aus Unbehagen wird unerträgliche Beklemmung und dann panische Angst.
+ P und J laufen.
+\end_layout
+
+\begin_layout Description
+Fakten Beschreibung der Echohalle.
+ Zitat: Sagtest du nicht, dass deine Beine deinem Willen gehorchen? -- Sicher!
+ Ich will, dass sie laufen!
+\end_layout
+
+\begin_layout Subsubsection
+Spuk am Telefon?
+\end_layout
+
+\begin_layout Paragraph
+Szene 12.
+\end_layout
+
+\begin_layout Description
+Ort Vor dem Schloss den Hang hinab.
+\end_layout
+
+\begin_layout Description
+Zeit unverändert
+\end_layout
+
+\begin_layout Description
+Inhalt P und J laufen hinab, P hört Schritte (aber das ist nur das Echo
+ von der Burgmauer).
+ Hinter ihnen hören sie einen Schrei.
+ Sie setzen sich zu Bob ins Auto.
+\end_layout
+
+\begin_layout Paragraph
+Szene 13.
+\end_layout
+
+\begin_layout Description
+Ort im Auto.
+\end_layout
+
+\begin_layout Description
+Zeit unverändert
+\end_layout
+
+\begin_layout Description
+Inhalt J schreit 
+\begin_inset Quotes ald
+\end_inset
+
+Morton, fahren sie uns nach Hause!
+\begin_inset Quotes ard
+\end_inset
+
+ B fragt nach dem Schrei.
+ J sagt, dass sie nichts gesehen hätten, aber das Nichts habe ihnen einen
+ gewaltigen Schrecken eingejagt.
+ P malt das noch aus.
+ Auf die Frage, dass sie doch bestimmt nie wieder da hin gehen, antwortet
+ J nicht -- er kneten still eine Unterlippe und sieht aus dem Fenster.
+\end_layout
+
+\begin_layout Paragraph
+Szene 14.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz
+\end_layout
+
+\begin_layout Description
+Zeit wenig später
+\end_layout
+
+\begin_layout Description
+Inhalt Bei Ankunft sagt Morton, dass er diese Art Einsatz wegen der Abwechslung
+ schätzt.
+ Die Jungs gehen über Gang III in die Zentrale.
+ J 
+\begin_inset Quotes ald
+\end_inset
+
+verzeiht
+\begin_inset Quotes ard
+\end_inset
+
+ P, dass er den Schrei nicht aufgenommen hat, sondern schlicht weggelaufen
+ ist.
+ J und P überlegen, warum sie den Wunsch hatten, wegzulaufen.
+ Während sie dies tun, klingelt das Telefon; das ist merkwürdig, weil niemand
+ diese Nummer hat.
+ Niemand spricht, J legt auf.
+ Es klingelt wieder, und dieses Mal hören sie 
+\begin_inset Quotes ald
+\end_inset
+
+Wegbleiben!
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Nach Ende des Telefonats Stille.
+ Dann rennen aller drei angsterfüllt aus der Zentrale.
+ Fingerzeig.
+\end_layout
+
+\begin_layout Description
+Fakten Das Haus von Titus und Mathilda liegt neben dem Lagerplatz (wo auch
+ immer das ist.
+ Auf dem Gelände?) Beide sehen fern.
+ Gang III wird eingeführt.
+ Telefon und Verstärker werden eingeführt.
+ Telefonanschluss in der Woche vorher gelegt.
+\end_layout
+
+\begin_layout Subsubsection
+In der Falle!
+\end_layout
+
+\begin_layout Paragraph
+Szene 15.
+\end_layout
+
+\begin_layout Description
+Ort Zentrale
+\end_layout
+
+\begin_layout Description
+Zeit Nächster Nachmittag
+\end_layout
+
+\begin_layout Description
+Inhalt J und P in Zentrale, B in Bücherei.
+ P möchte, dass J Hitchcock anruft und den Fall abgibt.
+ J ignoriert ihn und überlegt lieber, wer angerufen haben könnte.
+ Es könnte Terrills Geist gewesen sein und er möchte jemanden über Terrill
+ befragen, der diesen gekannt hat: Jonathan Rex.
+ Er zeigt P das Foto mit Terrill und Rex.
+ J schlägt Rex' Adresse im Telefonbuch nach und ruft Morton.
+ Ohne sie anzumelden wollen sie hinfahren.
+ Sie sagen Mathilda Bescheide und Morton holt sie ab.
+\end_layout
+
+\begin_layout Description
+Fakten Rex' Spitzname ist 
+\begin_inset Quotes ald
+\end_inset
+
+der Flüsterer
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Terrill hat braune Haare.
+ Der Rolls hat Lederpolster.
+\end_layout
+
+\begin_layout Paragraph
+Szene 16.
+\end_layout
+
+\begin_layout Description
+Ort Im Auto nahe des Schwarzen Canyons
+\end_layout
+
+\begin_layout Description
+Zeit wenig später
+\end_layout
+
+\begin_layout Description
+Inhalt Während der Fahrt bittet J Morton, beim Schwarzen Canyon vorbeizufahren,
+ weil dieser auf dem Weg zu Rex liegen müsste.
+ Morton entdeckt Autospuren über denen des Rolls vom Vorabend, er hatte
+ das Gefühl, dass sie verfolgt würden.
+ J untersucht das Schloss ringsherum, weil er einen Unterschlupf für einen
+ Menschen sucht.
+ Doch nichts.
+ Sie hören zwei Schreie und sehen zwei Menschen aus dem Schloss rennen,
+ einer verliert etwas Glänzendes.
+ J und P rennen hinterher, J findet die Taschenlampe mit Gravur 
+\begin_inset Quotes ald
+\end_inset
+
+S.N.
+\begin_inset Quotes ard
+\end_inset
+
+ Sie kommen sofort auf Skinny und J weiß auch, dass Skinny durch die Visitenkart
+e aus der Bücherei von dem Schloss wusste.
+ Er beschließt, sich erneut das Schloss anzusehen, doch dann rollt ein Felsklotz
+ herab.
+ Oben am Hang versteckt sich jemand, sie denken, dass dies Skinny ist.
+ Sie gehen hoch und entdecken eine Felsspalte, die sie untersuchen.
+ Dann rutscht Geröll herab und J zieht P mit in die Höhlung in der Spalte.
+ Dort werden sie verschüttet.
+ Fingerzeig.
+\end_layout
+
+\begin_layout Subsubsection
+Der Mann mit der Narbe
+\end_layout
+
+\begin_layout Paragraph
+Szene 17.
+\end_layout
+
+\begin_layout Description
+Ort In der Höhle
+\end_layout
+
+\begin_layout Description
+Zeit gleich
+\end_layout
+
+\begin_layout Description
+Inhalt J findet einen verkohlten Stock in einem Lagerfeuer, spitzt ihn an
+ und stochert damit ein Loch frei.
+ Sie gehen zu Morton.
+\end_layout
+
+\begin_layout Description
+Fakten 
+\end_layout
+
+\begin_layout Paragraph
+Szene 18.
+\end_layout
+
+\begin_layout Description
+Ort Bei Morton
+\end_layout
+
+\begin_layout Description
+Zeit gleich
+\end_layout
+
+\begin_layout Description
+Inhalt Morton hat zwei Jungs und einen blauen Sportwagen gesehen und dann
+ den Erdrutsch gehört.
+ J überlegt, wer die Steine ins Rollen gebracht hat, wenn nicht Skinny.
+ Fahrt zu Rex.
+\end_layout
+
+\begin_layout Description
+Fakten Rex wohnt in der oberen Talstraße 915.
+ Skinny fährt einen blauen Sportwagen.
+ Die Talstraße führt er über den Pass und verläuft dann wieder den Hang
+ hinauf.
+ Beschreibung des Hauses von Rex.
+\end_layout
+
+\begin_layout Paragraph
+Szene 19.
+\end_layout
+
+\begin_layout Description
+Ort Obere Talstraße
+\end_layout
+
+\begin_layout Description
+Zeit gleich
+\end_layout
+
+\begin_layout Description
+Inhalt P und J sind bei Rex' Haus und Rex kommt mit erhobenem Messer auf
+ sie zu.
+\end_layout
+
+\begin_layout Description
+Fakten Rex wohnt in der oberen Talstraße 915.
+ Die Talstraße führt er über den Pass und verläuft dann wieder den Hang
+ hinauf.
+ Beschreibung des Hauses von Rex.
+\end_layout
+
+\begin_layout Subsubsection
+Gespenster -- Gespenster
+\end_layout
+
+\begin_layout Paragraph
+Szene 20.
+\end_layout
+
+\begin_layout Description
+Ort Obere Talstraße 915, Rex' Haus
+\end_layout
+
+\begin_layout Description
+Inhalt Rex wirft das Messer auf eine Schlange zwischen J und P hindurch.
+ Er flunkert sie an, dass er gerade Buschwerk geschnitten hätte und biete
+ Limonade an.
+ J wundert sich, dass Rex saubere Arme hat, und dass die Limonade bereits
+ fertig ist.
+ J fragt, ob Rex sich vorstellen könne, dass Terrill nun in dem Schloss
+ spukt.
+ Rex erzählt von Terrill und seinem letzten Film und wie es diesem gegangen
+ sei.
+ Er spricht zwei Spukmöglichkeiten an: Terrill und die Geister aus dem Gemäuer
+ (sozusagen).
+\end_layout
+
+\begin_layout Subsubsection
+Ein folgenschwerer Fehltritt
+\end_layout
+
+\begin_layout Paragraph
+Szene 21.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz
+\end_layout
+
+\begin_layout Description
+Zeit zwei Tage später, am Tag
+\end_layout
+
+\begin_layout Description
+Inhalt ddf schuften nach Mathildas Befehl.
+ Titus kommt gegen Mittag mit Neuanschaffung auf den Platz: Heimorgel.
+ Kenneth und Patrick laden sie ab.
+ Mathilda wundert sich natürlich über den Kauf.
+ Fingerzeig Akustik.
+\end_layout
+
+\begin_layout Description
+Fakten Einführung Titus und Binnenverhältnis Titus/Mathilda.
+ Titus hat eine Baßstimme, lange Nase, großen schwarzen Schnurrbart und
+ ist klein, raucht Pfeife.
+ Er hat eine zwei Meter hohe Heimorgel gekauft und möchte das Orgelspiel
+ lernen.
+ Der große Lastwagen hat an der Ladefläche eine Hebevorrichtung.
+ Er hat mal im Zirkus Leierkasten gespielt.
+ Orgel soll dicht 
+\emph on
+neben dem Zaun am Haus 
+\emph default
+aufgestellt werden.
+ Dieses Kapitel hat den Zweck, J auf die Idee mit Infraschall zu bringen.
+\end_layout
+
+\begin_layout Paragraph
+Szene 22.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz
+\end_layout
+
+\begin_layout Description
+Zeit gleich
+\end_layout
+
+\begin_layout Description
+Inhalt Skinny fährt mit zwei Mitfahrern auf den Schrottplatz und hupt.
+ Karton mit Ratte, J kontert.
+ J gibt ihm die Taschenlampe, die er beim Schloss fand.
+ Zitat: Schreckensbleiches Nervenbündel.
+ J rutscht auf Rohr aus und verstaucht sich den Knöchel.
+\end_layout
+
+\begin_layout Description
+Fakten Skinny ist groß, dünn, hat ein bleiches Gesicht und fährt einen blauen
+ Sportwagen.
+ Seine Eltern und er sind nur für kurze Zeit im Jahr in Rocky Beach.
+ Er hält sich für intelligent und nutzt das Geld seiner Eltern und sein
+ Auto, um eine Führungsrolle zu spielen.
+ Er gibt gerne Partys.
+ Nur wenige der Kinder in Rocky Beach mögen ihn, und diejenigen, die ihn
+ mögen, schätzen wohl hauptsächlich sein Geld.
+\end_layout
+
+\begin_layout Subsubsection
+Die Warnung der Zigeunerin
+\end_layout
+
+\begin_layout Paragraph
+Szene 23.
+\end_layout
+
+\begin_layout Description
+Ort Schrottplatz.
+\end_layout
+
+\begin_layout Description
+Zeit Zwei Tage später.
+\end_layout
+
+\begin_layout Description
+Inhalt Titus hat J nach seinem Sturz ins Krankenhaus gefahren.
+ Dr Altman hat J im Krankenhaus behandelt.
+ J soll den Knöchel zwar bald wieder bewegen, liegt aber derzeit mit einem
+ bindenumwickelten Knöchel im Bett.
+ DDF halten dort eine Besprechung ab und rätseln, wer der Anrufer gewesen
+ sein und wer die Steine ins Rollen gebracht haben könnte.
+ Und warum Rex gesagt hatte, dass er das Gebüsch beschnitten hätte, obwohl
+ er das offensichtlich nicht getan hatte.
+ Mathilda erzählt von der Warnung der Zigeunerin.
+ Peter schlägt eine Abstimmung drüber vor, ob sie sich nicht vom Schloss
+ fernhalten sollten, B ist dafür.
+ J wiegelt ab, dass sie ja wohl nicht wollen, dass Skinny einen Erfolg hat.
+ J folgert aus der Warnung, dass die DDF dicht an der Lösung sind, weil
+ bisher niemand eine Warnung erhalten hat.
+ B und P sollen bei Tageslicht ins Schloss und die Entfernung messen, bis
+ zu der die Panik noch zu fühlen ist.
+\end_layout
+
+\begin_layout Description
+Fakten Skinnys Stimme ähnelt einem wiehernden Pony.
+ Am Vortag kam J aus dem Krankenhaus nach Hause; das bedeutet dann, dass
+ er wegen eines verstauchten Knöchels einen Tag im Krankenhaus bleiben musste
+ … Bevor J zurückkam, war die Zigeunerin da.
+\end_layout
+
+\begin_layout Subsubsection
+Das blaue Phantom
+\end_layout
+
+\begin_layout Paragraph
+Szene 24.
+\end_layout
+
+\begin_layout Description
+Ort Bob und Peter vor dem Gespensterschloss
+\end_layout
+
+\begin_layout Description
+Zeit am gleichen Abend, ungefähr zwei Stunden vor Sonnenuntergang
+\end_layout
+
+\begin_layout Description
+Inhalt B und P sehen sich das Schloss bei Tageslicht an.
+ Bob wird in der Echohalle von einer Ritterrüstung 
+\begin_inset Quotes ald
+\end_inset
+
+angegriffen
+\begin_inset Quotes ard
+\end_inset
+
+.
+ Sie steigen die Wendeltreppe in der Echohalle hinauf in den kleinen Turm
+ und überblicken den Canyon.
+ Dann steigen sie ein Stockwerk tiefer und gehen in die Bibliothek, in der
+ sie den Sarg mit dem Skelett finden.
+ Da es dunkelt, wollen sie das Schloss verlassen, finden aber den Rückweg
+ nicht und verirren sich ein bisschen.
+ Unten in einem Gang hören sie dann das Phantom Orgel spielen, da sie hinter
+ dem Vorführraum sind.
+ Mit andauernder Musik bekommen sie Panik und rennen schließlich aus dem
+ Schloss.
+ Bob landet in Laubhaufen.
+ 
+\end_layout
+
+\begin_layout Description
+Fakten Von der Echohalle geht der Vorführraum ab, der die Orgel enthält.
+ Ungefähre Lage der Räume.
+ Sarkophag mit Widmung
+\end_layout
+
+\begin_layout Section
+Hörspiel
+\end_layout
+
+\begin_layout Subsection
+Eckdaten
+\end_layout
+
+\begin_layout Standard
+(Produktionsjahr, Eckdaten aus Einleger)
+\end_layout
+
+\begin_layout Itemize
+Buch: H.
+ G.
+ Francis
+\end_layout
+
+\begin_layout Itemize
+Regie: Heikedine Körting
+\end_layout
+
+\begin_layout Itemize
+Musik: B.
+ Brac/B.
+ George
+\end_layout
+
+\begin_layout Itemize
+Erscheinungsdatum: 01.03.1980
+\end_layout
+
+\begin_layout Itemize
+Laufzeit: ca.
+ 46 min.
+\end_layout
+
+\begin_layout Subsection
+Sprecher
+\end_layout
+
+\begin_layout Itemize
+Hitchcock, Erzähler Peter Pasetti
+\end_layout
+
+\begin_layout Itemize
+Justus Jonas, Erster Detektiv Oliver Rohrbeck
+\end_layout
+
+\begin_layout Itemize
+Peter Shaw, Zweiter Detektiv Jens Wawrczeck
+\end_layout
+
+\begin_layout Itemize
+Bob Andrews, Recherchen und Archiv Andreas Fröhlich
+\end_layout
+
+\begin_layout Itemize
+Tante Mathilda Jonas Karin Lieneweg
+\end_layout
+
+\begin_layout Itemize
+Stephen Terrill Wolf Rahtjen
+\end_layout
+
+\begin_layout Itemize
+Skinny Norris Andreas von der Meden
+\end_layout
+
+\begin_layout Itemize
+Mr.
+ Grant Horst Breiter
+\end_layout
+
+\begin_layout Itemize
+Morton Andreas von der Meden
+\end_layout
+
+\begin_layout Subsection
+Abweichungen vom Buch
+\end_layout
+
+\begin_layout Itemize
+Es ist Folge 11 (Seufzer).
+ Dadurch mussten inhaltlich einige kleine Änderungen vorgenommen werden.
+ Für mich besonders bedauerlich ist, dass wir den Anfang der Detektive nicht
+ so schön wie im Buch mitbekommen.
+ Daher entgeht uns insbesondere Justus' schauspielerische Leistung.
+ Im Hörspiel werden sie einfach nur von Hitchcock angerufen.
+\end_layout
+
+\begin_layout Itemize
+In der Echohalle pfeift Peter.
+ Im Buch lacht er.
+ Der Dialog davor fehlt im Hörspiel.
+ Daher wird J Ermahnung 
+\begin_inset Quotes ald
+\end_inset
+
+aber mach das bloß nicht nochmal
+\begin_inset Quotes ard
+\end_inset
+
+ leicht unsinnig.
+\end_layout
+
+\begin_layout Itemize
+Beim ersten Treffen von Rex fehlt die Szene, in der er mit dem Buschmesser
+ die Schlange hinter J und P tötet.
+ Es fehlt auch seine 
+\begin_inset Quotes ald
+\end_inset
+
+Lüge
+\begin_inset Quotes ard
+\end_inset
+
+, dass er Buschwerk geschnitten hätte.
+\end_layout
+
+\begin_layout Itemize
+Rex flüstert im Buch nur heiser, im Hörspiel spricht er.
+ 
+\end_layout
+
+\begin_layout Itemize
+J rutscht nach der Rattenschachtel nicht auf dem Rohr aus.
+ Wir erfahren nicht, dass J sich den Knöchel verstaucht hat.
+\end_layout
+
+\begin_layout Subsection
+Besonderheit
+\end_layout
+
+\begin_layout Standard
+(Ist eine Sprecherleistung objektiv bemerkenswert? Taucht ein Sprecher nach
+ langer Zeit einmal wieder auf?)
+\end_layout
+
+\begin_layout Standard
+Jonathan Rex spricht an einigen Stellen leicht lispelnd.
+ Ich lege das mal wohlwollend so aus, dass die Regisseurin damit den jungen
+ Hörern einen Wink mit dem Zaunpfahl geben wollte.
+\end_layout
+
+\begin_layout Standard
+In der Gemeinde wird gerne über die gelungene Atmosphäre geredet: Echohalle
+ und Orgel sind gelungen eingesetzt.
+\end_layout
+
+\end_body
+\end_document
