@@ -1,0 +1,9 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{allbuch}[2012/04/23 v0.01]
+
+\DeclareOption{final}{\finalcopytrue}
+\DeclareOption{draft}{\finalcopyfalse}
+\DeclareOption*{\PackageWarning{zeitschrift}{Unknown option `\CurrentOption'}}
+
+\ProcessOptions\relax
+\endinput

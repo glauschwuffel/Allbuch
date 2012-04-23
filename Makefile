@@ -1,19 +1,32 @@
 LYX=/Applications/LyX.app/Contents/MacOS/lyx
 
+CONFIGUREDIR=/Application
+LYXSYSTEMDIR=/Applications/LyX.app/Contents/Resources/
+LAYOUTDIR=$${HOME}/Library/Application\ Support/LyX-2.0/layouts/
+TEXPACKAGEDIR=$${HOME}/texmf/tex/latex/zeitschrift
 
-# Das klappt auch noch nicht. Die eingebundenen Abschnitte in Teil 2 fehlen
-# völlig.
+VIEW=/Applications/Preview.app/Contents/MacOS/Preview
+
+LAYOUT=Dateien/Layouts/allbuch.layout
+PACKAGE=Dateien/Packages/allbuch.sty
+
 pdf: Hauptdokument.lyx Referenzen.bib
 	$(LYX) -e pdf2 Hauptdokument.lyx
 
-# das geht irgendwie so gar nicht... die Umlaute werden nicht richtig umkodiert
-#Referenzen.bib: Referenzen.utf8.bib
-#	cp Referenzen.utf8.bib Referenzen.latin1.bib
-#	recode utf8..latin1 Referenzen.latin1.bib
-#	cp Referenzen.latin1.bib Referenzen.bib
-
 view: pdf
-	evince Hauptdokument.pdf&
+	$(VIEW) Hauptdokument.pdf&
 
 edit:
 	$(LYX) Hauptdokument.lyx&
+
+reconfigure:
+	cd $(LAYOUTDIR) && python $(LYXSYSTEMDIR)/configure.py
+
+install-layout: $(LAYOUT)
+	cp -p $(LAYOUT) $(LAYOUTDIR)
+	make reconfigure
+
+install-package: $(PACKAGE)
+	if [ ! -d $(TEXPACKAGEDIR) ] ; then mkdir -p $(TEXPACKAGEDIR) ; fi
+	cp $(PACKAGE) $(TEXPACKAGEDIR)  
+	mktexlsr

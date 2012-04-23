@@ -1,0 +1,13 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[scrbook]{allbuch}
+# Basiert auf scrbook.layout
+
+# Dinge fuer scrbook laden
+Input scrbook.layout
+
+Preamble
+% die ist der LaTeX-Vorspann
+EndPreamble
+
+
+
