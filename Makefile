@@ -3,7 +3,7 @@ LYX=/Applications/LyX.app/Contents/MacOS/lyx
 CONFIGUREDIR=/Application
 LYXSYSTEMDIR=/Applications/LyX.app/Contents/Resources/
 LAYOUTDIR=$${HOME}/Library/Application\ Support/LyX-2.0/layouts/
-TEXPACKAGEDIR=$${HOME}/texmf/tex/latex/zeitschrift
+TEXPACKAGEDIR=$${HOME}/Library/texmf/tex/latex/allbuch
 
 VIEW=/Applications/Preview.app/Contents/MacOS/Preview
 
