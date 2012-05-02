@@ -20,8 +20,8 @@ Preamble
 \usepackage[natbib=true,backend=biber]{biblatex}
 \bibliography{./Referenzen}
 
-% anstatt serifenloser Schrift möchte ich bitte Serifen sehen
 \renewcommand{\sfdefault}{\rmdefault}
+
 
 % Einstellungen, um überfüllte HKästen zu vermeiden. So l2tabu entnommen.
 \tolerance 1414
@@ -44,6 +44,8 @@ Preamble
 \input{glyphtounicode}
 \pdfgentounicode=1
 
+
+
 % URLs und Pfade bitte nicht in Schreibmaschinenschrift malen, sondern kursiv.
 \renewcommand{\UrlFont}{\it}
 \renewcommand{\path}{\url}
@@ -59,14 +61,16 @@ Preamble
 % serifenlos und fett.
 \setkomafont{pageheadfoot}{\small\normalfont\sffamily\bfseries}
 
+
 % Kapitelnummern bitte in Euler setzen
 \newfont{\chapterNumber}{eurb10 scaled 7000}
+
 
 \RequirePackage{textcase} % for \MakeTextUppercase
 \RequirePackage{ifthen}
 
-% Überschriften in Großbuchstaben und leicht gesperrt setzen.
-% textls bringt das Paket microtype mit  
+  % Überschriften in Großbuchstaben und leicht gesperrt setzen.
+  % textls bringt das Paket microtype mit  
 
 % Überschriften bitte in Kapitälchen setzen
 \DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\textsc{#1}}}%

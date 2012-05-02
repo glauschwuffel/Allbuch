@@ -2,7 +2,7 @@ LYX=/Applications/LyX.app/Contents/MacOS/lyx
 
 CONFIGUREDIR=/Application
 LYXSYSTEMDIR=/Applications/LyX.app/Contents/Resources/
-LAYOUTDIR=$${HOME}/Library/Application\ Support/LyX-2.0/layouts/
+LAYOUTDIR=$${HOME}/Library/Application\ Support/LyX-2.0/layouts/layouts
 TEXPACKAGEDIR=$${HOME}/Library/texmf/tex/latex/allbuch
 
 VIEW=/Applications/Preview.app/Contents/MacOS/Preview
@@ -20,10 +20,10 @@ edit:
 	$(LYX) Hauptdokument.lyx&
 
 reconfigure:
-	cd $(LAYOUTDIR) && python $(LYXSYSTEMDIR)/configure.py
+	cd $(LYXSYSTEMDIR) && python $(LYXSYSTEMDIR)/configure.py
 
 install-layout: $(LAYOUT)
-	cp -p $(LAYOUT) $(LAYOUTDIR)
+	cp -p $(LAYOUT) .
 	make reconfigure
 
 install-package: $(PACKAGE)
