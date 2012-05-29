@@ -18,7 +18,7 @@ Preamble
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage[natbib=true,backend=biber]{biblatex}
-\bibliography{./Referenzen}
+\bibliography{/Users/gregor/Documents/Texte/Allbuch/Referenzen}
 
 % anstatt serifenloser Schrift möchte ich bitte Serifen sehen
 \renewcommand{\sfdefault}{\rmdefault}

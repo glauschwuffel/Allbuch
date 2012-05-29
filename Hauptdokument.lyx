@@ -818,7 +818,7 @@ eltes »r« zu denken.
 Der Titel dieses Buches enthält daher auch nicht diese Zeichenfolge.
  Und wo wir gerade beim Titel sind: Das Wort »Allbuch« habe ich dem zweiten
  Band des Lexikons der bedrohten Wörter von Bodo Mrozek entnommen.
- Das passt umso besser, da hier auch das schöne Wort 
+ Das passt umso besser, da in dieses schöne Buch auch das Wort 
 \begin_inset Quotes ald
 \end_inset
 
@@ -859,7 +859,51 @@ nennen.
 Ich gehe davon aus, dass Leser dieses Buches über Grundkenntnisse im Universum
  der drei Fragezeichen verfügen.
  Für diejenigen Leser, die aus reiner Neugierde über die drei Detektive
- auf dieses Werk gestoßen sind, gibt es zu Beginn einen Schnelleinstieg.
+ auf dieses Werk gestoßen sind, gibt es ab Seite 
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:Schnelleinstieg"
+
+\end_inset
+
+ einen Schnelleinstieg.
+\end_layout
+
+\begin_layout Section*
+Die Bücher
+\end_layout
+
+\begin_layout Standard
+Soweit es mir möglich war, habe ich auf alte Ausgaben der Bücher des Kosmos-Verl
+ags zurückgegriffen.
+ Ich zitiere ausschließlich aus diesen; da ich aus möglichst alten Ausgaben
+ zitiere, habe ich die zu der Zeit gültige Rechtschreibung beibehalten.
+\end_layout
+
+\begin_layout Standard
+In den Büchern sind die Kapitel nicht nummeriert.
+ Abweichend davon habe ich bei der Angabe einer Zitatquelle die Kapitel
+ fortlaufend nummeriert.
+ Das Vorwort habe ich als eigenständiges Kapitel betrachtet und es daher
+ mit der Nummer 1 versehen.
+\end_layout
+
+\begin_layout Section*
+Vorgehensweise
+\end_layout
+
+\begin_layout Standard
+Ich ergänze dieses Buch Fall um Fall.
+ Einzelne Einträge passe ich dann an, wenn ich bei dem entsprechenden Fall
+ angelangt bin, der diese Änderung erforderlich macht.
+ Ein Beispiel: Über Visitenkarte gibt es eine Menge zu schreiben.
+ Insbesondere die neue Gestaltung ab der 
+\emph on
+Toteninsel
+\emph default
+ ist erwähnenswert.
+ Da ich aber fallweise ergänze, wirst du über die neue Gestaltung erst dann
+ etwas in diesem Werk finden, wenn ich den Fall der Toteninsel behandele.
 \end_layout
 
 \begin_layout Section*
@@ -983,6 +1027,16 @@ Die Telefonlawine hat uns auf diese Spur gebracht.
 
 \begin_layout Section*
 Schnelleinstieg
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Schnelleinstieg"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1138,7 +1192,7 @@ Kategorie
 
 \begin_layout Standard
 Dann suche ich noch nach der Bedeutung des Falles für die Reihe.
- Vielleicht gibt es ja einige Perlen, die hervorblitzen?
+ Vielleicht gibt es ja einige Perlen, die hervor blitzen?
 \end_layout
 
 \begin_layout Section
@@ -1411,9 +1465,37 @@ Ja, ja -- meinetwegen.
 \end_inset
 
 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand citet
+key "arthur:1968"
+
+\end_inset
+
+, Kap.
+\begin_inset space \space{}
+\end_inset
+
+3, 
+\begin_inset Quotes ald
+\end_inset
+
+Man spricht vom Gespensterschloss
+\begin_inset Quotes ard
+\end_inset
+
+
 \end_layout
 
-\begin_layout Subsection
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
 Besonderheiten
 \end_layout
 
@@ -1454,7 +1536,7 @@ Der erste Fall ist ein Schnittmuster für die frühen Geschichten der Serie:
  
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Trivia
 \end_layout
 
@@ -1471,7 +1553,7 @@ Peter hat seine Briefmarkensammlung gegen ein tragbares Tonbandgerät getauscht,
  ergänzt.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsection*
 Bedeutung für die Reihe
 \end_layout
 
@@ -1538,8 +1620,72 @@ Gelegentlich kommt es vor, dass ein Hörspiel von der Beschreibung im Buch
 \end_layout
 
 \begin_layout Section
+Abdul, der Araber
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Abdul, der Araber
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Araber!Abdul
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Abdul, der Araber, ist eine der Verkleidungen, in die Stephan Terrill im
+ 
+\emph on
+Gespensterschloss 
+\emph default
+schlüpft, um Justus und Peter zu erschrecken.
+ Mehr zu dieser Verkleidung kannst du bei der Beschreibung des Charakters
+ 
+\begin_inset Quotes ald
+\end_inset
+
+Rosa
+\begin_inset Quotes ard
+\end_inset
+
+ nachlesen.
+ 
+\end_layout
+
+\begin_layout Section
 Dr.
  Altman
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Dr.
+\begin_inset space \thinspace{}
+\end_inset
+
+Altman
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1739,7 +1885,7 @@ Charakter!Charles Grant
 \begin_layout Standard
 Ein Freund Stephen Terrills.
  Durch seine Arbeit als Maskenbilder kann er Terrill bei seinen Verkleidungen
- helfen, die dieser anlegen muss, um die drei Detektive aus dem 
+ helfen, die dieser anlegen muss, um Justus und Peter aus dem 
 \emph on
 Gespensterschloss
 \emph default
@@ -1747,6 +1893,26 @@ Gespensterschloss
 \end_layout
 
 \begin_layout Standard
+Charles Grant ist etwas größer als 1,50 m.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Gespensterschloss, Kap.
+ 18.
+ Dem Fragezeichen auf der Spur
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
 Mr Grant hilft Justus in der 
 \emph on
 flüsternden Mumie,
@@ -1754,6 +1920,11 @@ flüsternden Mumie,
  sich als Professor Yarborough zu verkleiden.
  Im Hörspiel erwähnt Justus wegen der abweichenden Fallreihenfolge, dass
  er Grant vom Film kenne.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1897,7 +2068,7 @@ Gespensterschloss, Kap.
 \begin_inset space \thinspace{}
 \end_inset
 
-8, 
+9, 
 \begin_inset Quotes ald
 \end_inset
 
@@ -2255,6 +2426,36 @@ Charakter!Linda
 
 \end_layout
 
+\begin_layout Standard
+Stephan Terrill schlüpft in die Rolle von Linda, einer hochgewachsenen Frau,
+ um Justus und Peter im Kerker des 
+\emph on
+Gespensterschlosses 
+\emph default
+einzuschüchtern.
+ 
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+17, 
+\begin_inset Quotes ald
+\end_inset
+
+Im Verlies
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Morton
 \end_layout
@@ -2595,64 +2796,6 @@ Jonas.
 \end_layout
 
 \begin_layout Section
-Shaw, Peter
-\end_layout
-
-\begin_layout Standard
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Charakter!Shaw, Peter
-\end_layout
-
-\end_inset
-
-
-\begin_inset Index idx
-status collapsed
-
-\begin_layout Plain Layout
-Charakter!Peter Shaw
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Peter ist der zweite Detektiv und zwar kräftig gebaut und sportlich, aber
- stets etwas ängstlich.
- Wenn nachts ein Wolf heult, eine Tür unerwartet zufällt oder von Gespenstern
- geredet wird, dann wird Peter früher oder später in etwa folgenden Satz
- sagen: 
-\begin_inset Quotes ald
-\end_inset
-
-Also ich bin dafür, dass wir aufgeben.
-\begin_inset Quotes ard
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Obwohl er eher vorsichtig bis ängstlich ist, wird er bisweilen wagemutig
- und riskiert zuviel.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-schwarze Katze, unsichtbarer Gegner, wo noch?
-\end_layout
-
-\end_inset
-
- Das führt dann mitunter zu einem bösen Blick von Kommissar Reynolds.
-\end_layout
-
-\begin_layout Section
 Rex, Jonathan
 \end_layout
 
@@ -2768,7 +2911,7 @@ Mehr dazu: Gespensterschloss, Kap.
 \begin_inset space \thinspace{}
 \end_inset
 
-7, 
+8, 
 \begin_inset Quotes ald
 \end_inset
 
@@ -2780,7 +2923,7 @@ In der Falle!
 \begin_inset space \thinspace{}
 \end_inset
 
-9, 
+10, 
 \begin_inset Quotes ald
 \end_inset
 
@@ -2806,6 +2949,94 @@ Charakter!Rosa
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Charles Grant verkleidet sich als kleine alte Zigeunerin, die Justus und
+ Peter im Kerker des 
+\emph on
+Gespensterschlosses 
+\emph default
+einschüchtern soll.
+ Sie arbeitet mit Linda zusammen.
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+Mehr dazu: Gespensterschloss, Kap.
+\begin_inset space \thinspace{}
+\end_inset
+
+17, 
+\begin_inset Quotes ald
+\end_inset
+
+Im Verlies
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Shaw, Peter
+\end_layout
+
+\begin_layout Standard
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Shaw, Peter
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Charakter!Peter Shaw
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Peter ist der zweite Detektiv und zwar kräftig gebaut und sportlich, aber
+ stets etwas ängstlich.
+ Wenn nachts ein Wolf heult, eine Tür unerwartet zufällt oder von Gespenstern
+ geredet wird, dann wird Peter früher oder später in etwa folgenden Satz
+ sagen: 
+\begin_inset Quotes ald
+\end_inset
+
+Also ich bin dafür, dass wir aufgeben.
+\begin_inset Quotes ard
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Obwohl er eher vorsichtig bis ängstlich ist, wird er bisweilen wagemutig
+ und riskiert zuviel.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+schwarze Katze, unsichtbarer Gegner, wo noch?
+\end_layout
+
+\end_inset
+
+ Das führt dann mitunter zu einem bösen Blick von Kommissar Reynolds.
 \end_layout
 
 \begin_layout Section
@@ -2981,11 +3212,11 @@ Während seiner Zeit als Geist im Gespensterschloss übte er beständig und
 
 \shape italic
 \size footnotesize
-Mehr dazu: Gespensterschloss, Kap.
+Mehr zur Person: Gespensterschloss, Kap.
 \begin_inset space \thinspace{}
 \end_inset
 
-3: 
+4: 
 \begin_inset Quotes ald
 \end_inset
 
@@ -2997,11 +3228,39 @@ Man spricht vom Gespensterschloss
 \begin_inset space \thinspace{}
 \end_inset
 
-18, 
+19, 
 \begin_inset Quotes ald
 \end_inset
 
 Interview mit einem Gespenst
+\begin_inset Quotes ard
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Mehr zur Fünfer-Bande, die Justus und Peter erschrecken wollen: Kap.
+\begin_inset space \space{}
+\end_inset
+
+16, 
+\begin_inset Quotes ald
+\end_inset
+
+Nebel des Grauens
+\begin_inset Quotes ard
+\end_inset
+
+, Kap.
+\begin_inset space \space{}
+\end_inset
+
+17, 
+\begin_inset Quotes ald
+\end_inset
+
+Im Verlies
 \begin_inset Quotes ard
 \end_inset
 
@@ -5589,7 +5848,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "./Referenzen"
+bibfiles "Referenzen"
 options "bibtotoc,plain"
 
 \end_inset
