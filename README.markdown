@@ -12,6 +12,19 @@ Sony Music Entertainment Germany GmbH. Es steckt kein Geschäftsmodell dahinter.
 Das ist einfach nur ein Buch, das ich schreibe, weil ich es gerne hätte und
 niemand anderes es geschrieben hat.
 
+Mitschreiben / Selbst bauen
+---------------------------
+
+Dafür brauchst du Folgendes:
+
+* LyX ab Version 2
+* Das biblatex-Modul
+* Eine LaTeX-Installation
+* Eine biber-Installation
+
+Damit du das fertige Dokument erzeugen kannst, musst du momentan leider noch
+den Pfad zur Biliographie in den Dateien Hauptdokument.lyx und allbuch.layout anpassen.
+
 Das LyX-Layout
 --------------
 
