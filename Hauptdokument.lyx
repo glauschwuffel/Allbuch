@@ -1250,6 +1250,16 @@ Wie es zu dem Auftrag kam
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:universum-fall-gespensterschloss-wie-es-zu-dem-auftrag-kam"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Note Note
 status open
 
@@ -1515,6 +1525,93 @@ Man spricht vom Gespensterschloss
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection*
+Charaktere
+\end_layout
+
+\begin_layout Standard
+Neben Justus, Bob und Peter tauchen folgende Charaktere auf:
+\end_layout
+
+\begin_layout Itemize
+Titus Jonas
+\end_layout
+
+\begin_layout Itemize
+Mathilda Jonas
+\end_layout
+
+\begin_layout Itemize
+Patrick und Kenneth O'Ryan
+\end_layout
+
+\begin_layout Itemize
+Morton
+\end_layout
+
+\begin_layout Itemize
+Stephan Terrill (auch als Jonathan Rex und in anderen Verkleidungen)
+\end_layout
+
+\begin_layout Itemize
+Charles Grant (auch als Rosa)
+\end_layout
+
+\begin_layout Itemize
+Alfred Hitchcock
+\end_layout
+
+\begin_layout Itemize
+Skinny Norris
+\end_layout
+
+\begin_layout Subsection*
+Orte
+\end_layout
+
+\begin_layout Standard
+Eingeführt werden der Schrottplatz (S.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:ort-gebrauchtwarenhandel"
+
+\end_inset
+
+) und die Zentrale (S.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:ort-zentrale"
+
+\end_inset
+
+).
+ Zu Beginn und zum Ende der Geschichte wird Hitchcocks Büro besucht.
+ Der Hauptschauplatz ist Schloss Terrill (S.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "sec:ort-schloss-terrill"
+
+\end_inset
+
+) nahe des Schwarzen Canyons und das Haus von Jonathan Rex (S.
+\begin_inset space ~
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Subsection*
@@ -1928,6 +2025,16 @@ Grant, Charles
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-charles-grant"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Index idx
 status collapsed
 
@@ -2032,42 +2139,26 @@ Charakter!Alfred Hitchcock
 \end_layout
 
 \begin_layout Standard
-Hitchcock taucht in den Geschichten gelegentlich als Auftraggeber auf
-\begin_inset Note Note
-status open
+Alfred Hitchcock ist nach der Gründung des Detektivbüros 
+\begin_inset Quotes ald
+\end_inset
 
-\begin_layout Plain Layout
-In welchen?
-\end_layout
+Die drei ???
+\begin_inset Quotes ard
+\end_inset
+
+ der erste Auftraggeber.
+ Den Auftrag gibt er nicht ganz freiwillig -- Justus verleitet ihn mit einer
+ List dazu und ringt ihm sogar die Zusage ab, für den schriftlichen Bericht
+ über den Fall ein Vorwort zu verfassen (s.
+ Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "sec:universum-fall-gespensterschloss-wie-es-zu-dem-auftrag-kam"
 
 \end_inset
 
-, wird aber jedoch (fast) immer am Ende des Buches von den drei Detektiven
- besucht.
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-In welchen?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Wie sind die drei Detektive auf ihn gekommen? Auf Js Idee vom Gespensterschloss
- verweisen.
-\end_layout
-
-\end_inset
-
-
+).
 \end_layout
 
 \begin_layout Section
@@ -2412,6 +2503,16 @@ Larson, Henrietta
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-henrietta-larson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Index idx
 status collapsed
 
@@ -2535,6 +2636,16 @@ Im Verlies
 
 \begin_layout Section
 Morton
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-morton"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2694,6 +2805,16 @@ Sie müssen mich einfach Morton nennen, das gehört sich so.
 
 \begin_layout Section
 Norris, Skinner (Skinny)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-skinny-norris"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2877,6 +2998,16 @@ Rex, Jonathan
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-jonathan-rex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Index idx
 status collapsed
 
@@ -2970,7 +3101,30 @@ Gespensterschloss
 \end_layout
 
 \begin_layout Standard
-Rex wohnt im Schwarzen Canyon in der Oberen Talstraße 915 in unmittelbarer
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Ort!Obere Talstraße 915
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+Tier!Sittich
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rex wohnt am Schwarzen Canyon in der Oberen Talstraße 915 in unmittelbarer
  Nähe zum Haus Terrill in einem Landhaus mit rotem Ziegeldach.
  Das Haus steht dicht an einer Felswand, zwischen Haus und Felswand befinden
  sich Voliéren, in denen Rex Hunderte von Sittichen beherbergt: Er züchtet
@@ -3127,6 +3281,16 @@ schwarze Katze, unsichtbarer Gegner, wo noch?
 
 \begin_layout Section
 Terrill, Stephan
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:charakter-stephan-terrill"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3435,6 +3599,16 @@ Freiluftwerkstatt
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ort-freiluftwerkstatt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Die Freiluftwerkstatt befindet sich auf dem Schrottplatz des Gebrauchtwarenhande
 ls T.
 \begin_inset space \thinspace{}
@@ -3636,6 +3810,16 @@ gt.
 
 \begin_layout Section
 Schloss Terrill
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ort-schloss-terrill"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3888,6 +4072,16 @@ Zentrale, die
 \end_layout
 
 \begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ort-zentrale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Index idx
 status collapsed
 
@@ -3941,7 +4135,16 @@ Gespensterschloss, Kap.
 
 \end_inset
 
+ Auf dem Schreibtisch steht ein Telefon.
+ Der Telefonanschluss läuft auf Justus' Namen.
+ Mit dem Geld, das die Jungs für die auf dem Schrottplatz erledigten Arbeiten
+ erhalten, bezahlen sie die Anschlussgebühren.
+ In der Freiluftwerkstatt ist eine rote Lampe angebracht, die leuchtet,
+ wenn das Telefon in der Zentrale klingelt.
+\end_layout
 
+\begin_layout Subsection
+Geheimgänge
 \end_layout
 
 \begin_layout Standard
@@ -3951,7 +4154,7 @@ statt.
  Sie hat im Dach eine Lüftungsluke.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection*
 Tunnel II
 \end_layout
 
@@ -4014,7 +4217,7 @@ Kapitel 4).
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Subsubsection*
 Gang III
 \end_layout
 
